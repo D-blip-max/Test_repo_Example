@@ -1,0 +1,125 @@
+<div class="module-layout">
+  <header class="navbar glass-card">
+    <div class="nav-brand">
+      <span class="brand-title">🏷️ Gestión de Categorías</span>
+    </div>
+    <div class="nav-actions">
+      <button *appHasPermission="'categorias.create'" (click)="openCreateModal()" class="btn btn-primary">
+        <span>➕ Nueva Categoría</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="module-content">
+    @if (successMessage()) {
+      <div class="alert alert-success">
+        <span>✅ {{ successMessage() }}</span>
+      </div>
+    }
+
+    @if (errorMessage()) {
+      <div class="alert alert-error">
+        <span>⚠️ {{ errorMessage() }}</span>
+      </div>
+    }
+
+    <div class="card glass-card">
+      <div class="card-header">
+        <h3>Categorías del Catálogo</h3>
+      </div>
+
+      @if (isLoading()) {
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Cargando categorías...</p>
+        </div>
+      } @else {
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (cat of categories(); track cat.id) {
+                <tr>
+                  <td><strong class="text-primary">{{ cat.nombre }}</strong></td>
+                  <td>{{ cat.descripcion || 'Sin descripción' }}</td>
+                  <td>
+                    <span [class]="cat.activa ? 'badge badge-success' : 'badge badge-danger'">
+                      {{ cat.activa ? 'Activa' : 'Inactiva' }}
+                    </span>
+                  </td>
+                  <td class="action-cells">
+                    <button
+                      *appHasPermission="'categorias.update'"
+                      (click)="openEditModal(cat)"
+                      class="btn btn-sm btn-secondary"
+                      title="Editar Categoría"
+                    >
+                      ✏️ Editar
+                    </button>
+                    <button
+                      *appHasPermission="'categorias.delete'"
+                      (click)="toggleActiva(cat)"
+                      [class]="cat.activa ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'"
+                      [title]="cat.activa ? 'Desactivar' : 'Activar'"
+                    >
+                      {{ cat.activa ? '🚫 Desactivar' : '✅ Activar' }}
+                    </button>
+                  </td>
+                </tr>
+              } @empty {
+                <tr>
+                  <td colspan="4" class="text-center text-muted py-4">No hay categorías registradas.</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </div>
+  </main>
+
+  <!-- Modal Crear/Editar -->
+  @if (showModal()) {
+    <div class="modal-backdrop">
+      <div class="modal-card glass-card">
+        <div class="modal-header">
+          <h3>{{ isEditing() ? 'Editar Categoría' : 'Nueva Categoría' }}</h3>
+          <button (click)="closeModal()" class="btn-close">&times;</button>
+        </div>
+
+        <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="nombre">Nombre de Categoría *</label>
+              <input id="nombre" type="text" formControlName="nombre" class="form-control" placeholder="Ej. Poleras, Pantalones" />
+            </div>
+
+            <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <textarea id="descripcion" formControlName="descripcion" class="form-control" rows="3" placeholder="Descripción breve de la categoría"></textarea>
+            </div>
+
+            <div class="form-check">
+              <input id="activa" type="checkbox" formControlName="activa" />
+              <label for="activa">Categoría Activa</label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" (click)="closeModal()" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" [disabled]="categoryForm.invalid || isSaving()" class="btn btn-primary">
+              {{ isSaving() ? 'Guardando...' : (isEditing() ? 'Guardar Cambios' : 'Crear Categoría') }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</div>

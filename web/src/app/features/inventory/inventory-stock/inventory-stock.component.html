@@ -1,0 +1,294 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">📦 Inventario y Control de Stock</h1>
+        <p class="page-subtitle">Monitoreo de existencias, ajustes y alertas por sucursal</p>
+      </div>
+      <div class="header-actions">
+        <a routerLink="/inventario/recepcion" class="btn btn-primary" *appHasPermission="'inventario.create'">
+          📥 Recepción de Mercadería
+        </a>
+        <a routerLink="/inventario/movimientos" class="btn btn-secondary" *appHasPermission="'inventario.list'">
+          📜 Historial de Movimientos
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container-fluid">
+
+    <!-- Alert notifications -->
+    <div *ngIf="errorMessage()" class="alert alert-danger alert-dismissible">
+      <span>{{ errorMessage() }}</span>
+      <button type="button" class="btn-close" (click)="errorMessage.set(null)">×</button>
+    </div>
+
+    <div *ngIf="successMessage()" class="alert alert-success alert-dismissible">
+      <span>{{ successMessage() }}</span>
+      <button type="button" class="btn-close" (click)="successMessage.set(null)">×</button>
+    </div>
+
+    <!-- Filters & Branch Selection Card -->
+    <div class="card glass-card mb-4">
+      <div class="card-body">
+        <div class="filter-row">
+          <div class="filter-group">
+            <label class="filter-label">🏢 Sucursal:</label>
+            <select
+              class="form-select branch-select"
+              [ngModel]="selectedBranchId()"
+              (ngModelChange)="onBranchChange($event)">
+              <option *ngFor="let b of branches()" [value]="b.id">
+                {{ b.nombre }} ({{ b.ciudad }})
+              </option>
+            </select>
+          </div>
+
+          <div class="filter-actions">
+            <button
+              class="btn btn-outline"
+              [class.active]="soloConStock()"
+              (click)="toggleSoloConStock()">
+              {{ soloConStock() ? '✓ Solo con Stock' : 'Mostrar Todos' }}
+            </button>
+            <button class="btn btn-icon" (click)="loadStock(); loadAlerts();" title="Recargar">
+              🔄
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Summary Row -->
+    <div class="stats-grid mb-4">
+      <div class="stat-card">
+        <div class="stat-icon bg-primary-soft">📦</div>
+        <div class="stat-info">
+          <span class="stat-label">Artículos Registrados</span>
+          <span class="stat-value">{{ inventoryItems().length }}</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon bg-info-soft">📊</div>
+        <div class="stat-info">
+          <span class="stat-label">Stock Total</span>
+          <span class="stat-value">{{ getTotalStock() }}</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon bg-warning-soft">🔒</div>
+        <div class="stat-info">
+          <span class="stat-label">Stock Reservado</span>
+          <span class="stat-value">{{ getTotalReservado() }}</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon bg-success-soft">✨</div>
+        <div class="stat-info">
+          <span class="stat-label">Stock Disponible</span>
+          <span class="stat-value">{{ getTotalDisponible() }}</span>
+        </div>
+      </div>
+
+      <div class="stat-card" [class.has-alerts]="alerts().length > 0">
+        <div class="stat-icon bg-danger-soft">⚠️</div>
+        <div class="stat-info">
+          <span class="stat-label">Alertas de Stock</span>
+          <span class="stat-value text-danger">{{ alerts().length }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stock Table Card -->
+    <div class="card glass-card">
+      <div class="card-header">
+        <h3 class="card-title">Existencias en Sucursal</h3>
+        <span class="badge badge-info">{{ inventoryItems().length }} registros</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Producto / Variante</th>
+                <th>SKU</th>
+                <th>Ubicación</th>
+                <th class="text-center">Stock Actual</th>
+                <th class="text-center">Reservado</th>
+                <th class="text-center">Disponible</th>
+                <th class="text-center">Mínimo</th>
+                <th class="text-center">Estado</th>
+                <th class="text-end">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="isLoading()">
+                <td colspan="9" class="text-center py-4">
+                  <div class="spinner"></div>
+                  <p class="text-muted mt-2">Cargando inventario...</p>
+                </td>
+              </tr>
+
+              <tr *ngIf="!isLoading() && inventoryItems().length === 0">
+                <td colspan="9" class="text-center py-4 text-muted">
+                  No hay registros de inventario para esta sucursal.
+                </td>
+              </tr>
+
+              <tr *ngFor="let item of inventoryItems()" [class.row-alert]="item.alerta">
+                <td>
+                  <div class="product-info">
+                    <span class="product-name font-medium">
+                      {{ item.variantInfo?.productoNombre || 'Variante' }}
+                    </span>
+                    <span class="product-meta text-muted text-xs">
+                      Talla: <strong>{{ item.variantInfo?.talla || '-' }}</strong> | Color: <strong>{{ item.variantInfo?.color || '-' }}</strong>
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <code class="sku-code">{{ item.variantInfo?.sku || item.variante_id.substring(0,8) }}</code>
+                </td>
+                <td>
+                  <span class="badge badge-secondary" *ngIf="item.ubicacion">{{ item.ubicacion }}</span>
+                  <span class="text-muted" *ngIf="!item.ubicacion">-</span>
+                </td>
+                <td class="text-center font-bold">{{ item.stock_actual }}</td>
+                <td class="text-center text-warning font-medium">{{ item.stock_reservado }}</td>
+                <td class="text-center font-bold" [class.text-success]="item.stock_disponible > 0" [class.text-danger]="item.stock_disponible <= 0">
+                  {{ item.stock_disponible }}
+                </td>
+                <td class="text-center text-muted">{{ item.stock_minimo }}</td>
+                <td class="text-center">
+                  <span *ngIf="item.alerta === 'CRITICO'" class="badge badge-danger">Crítico</span>
+                  <span *ngIf="item.alerta === 'BAJO'" class="badge badge-warning">Bajo</span>
+                  <span *ngIf="item.alerta === 'EXCEDENTE'" class="badge badge-info">Excedente</span>
+                  <span *ngIf="!item.alerta" class="badge badge-success">OK</span>
+                </td>
+                <td class="text-end actions-cell">
+                  <button
+                    class="btn btn-sm btn-outline"
+                    title="Ajustar Stock (+/-)"
+                    (click)="openAdjustModal(item)"
+                    *appHasPermission="'inventario.update'">
+                    ⚖️ Ajustar
+                  </button>
+                  <button
+                    class="btn btn-sm btn-icon"
+                    title="Configurar ubicación y mínimo"
+                    (click)="openSettingsModal(item)"
+                    *appHasPermission="'inventario.update'">
+                    ⚙️
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal Ajuste Manual de Stock -->
+<div class="modal-backdrop" *ngIf="showAdjustModal()">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">⚖️ Ajuste Manual de Stock</h3>
+      <button type="button" class="btn-close" (click)="closeAdjustModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="item-summary mb-3 p-3 bg-light rounded">
+        <div><strong>Producto:</strong> {{ selectedItemForAdjust?.variantInfo?.productoNombre }} ({{ selectedItemForAdjust?.variantInfo?.talla }} / {{ selectedItemForAdjust?.variantInfo?.color }})</div>
+        <div><strong>Stock Actual:</strong> {{ selectedItemForAdjust?.stock_actual }} | <strong>Reservado:</strong> {{ selectedItemForAdjust?.stock_reservado }}</div>
+      </div>
+
+      <form [formGroup]="adjustForm" (ngSubmit)="onAdjustSubmit()">
+        <div class="form-group mb-3">
+          <label class="form-label">Cantidad a ajustar (+ para sumar, - para restar) *</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="cantidad"
+            placeholder="Ej: 5 o -3"
+            required>
+          <small class="form-hint">
+            Nuevo stock resultante: {{ (selectedItemForAdjust?.stock_actual || 0) + (adjustForm.value.cantidad || 0) }}
+          </small>
+        </div>
+
+        <div class="form-group mb-4">
+          <label class="form-label">Motivo o Nota explicativa</label>
+          <textarea
+            class="form-control"
+            formControlName="nota"
+            rows="3"
+            placeholder="Ej: Mermas, daño en transporte, conteo físico..."></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" (click)="closeAdjustModal()">
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="adjustForm.invalid || adjustForm.value.cantidad === 0 || isAdjusting()">
+            {{ isAdjusting() ? 'Guardando...' : 'Aplicar Ajuste' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Configuración de Inventario -->
+<div class="modal-backdrop" *ngIf="showSettingsModal()">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">⚙️ Configurar Inventario</h3>
+      <button type="button" class="btn-close" (click)="closeSettingsModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="settingsForm" (ngSubmit)="onSettingsSubmit()">
+        <div class="form-group mb-3">
+          <label class="form-label">Stock Mínimo de Alerta *</label>
+          <input
+            type="number"
+            min="0"
+            class="form-control"
+            formControlName="stock_minimo"
+            required>
+        </div>
+
+        <div class="form-group mb-4">
+          <label class="form-label">Ubicación física en sucursal</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="ubicacion"
+            placeholder="Ej: Estante A1, Bodega 2, Perchero 3">
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" (click)="closeSettingsModal()">
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="settingsForm.invalid || isSavingSettings()">
+            {{ isSavingSettings() ? 'Guardando...' : 'Guardar Cambios' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

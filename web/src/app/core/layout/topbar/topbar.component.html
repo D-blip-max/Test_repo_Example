@@ -1,0 +1,31 @@
+<header class="topbar glass-card">
+  <div class="topbar-left">
+    <a routerLink="/dashboard" class="brand-logo">
+      <span class="brand-icon">⚡</span>
+      <span class="brand-name">AdminLTE Portal</span>
+    </a>
+  </div>
+
+  <div class="topbar-right">
+    @if (currentUser(); as user) {
+      <div class="user-profile">
+        <div class="user-avatar">
+          <i class="bi bi-person-circle"></i>
+        </div>
+        <div class="user-info">
+          <span class="user-name">{{ user.full_name }}</span>
+          <span class="user-email">{{ user.email }}</span>
+        </div>
+      </div>
+    }
+
+    <button (click)="onLogout()" class="btn-icon btn-logout" title="Cerrar sesión">
+      <i class="bi bi-box-arrow-right"></i>
+      <span class="logout-text">Salir</span>
+    </button>
+
+    <button (click)="onToggleNav()" class="btn-icon btn-hamburger" title="Menú de Módulos">
+      <i class="bi bi-list"></i>
+    </button>
+  </div>
+</header>

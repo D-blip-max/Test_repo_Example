@@ -1,0 +1,148 @@
+<div class="module-layout">
+  <header class="navbar glass-card">
+    <div class="nav-brand">
+      <span class="brand-title">🏢 Gestión de Proveedores</span>
+    </div>
+    <div class="nav-actions">
+      <button *appHasPermission="'proveedores.create'" (click)="openCreateModal()" class="btn btn-primary">
+        <span>➕ Nuevo Proveedor</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="module-content">
+    @if (successMessage()) {
+      <div class="alert alert-success">
+        <span>✅ {{ successMessage() }}</span>
+      </div>
+    }
+
+    @if (errorMessage()) {
+      <div class="alert alert-error">
+        <span>⚠️ {{ errorMessage() }}</span>
+      </div>
+    }
+
+    <div class="card glass-card">
+      <div class="card-header">
+        <h3>Proveedores Registrados</h3>
+      </div>
+
+      @if (isLoading()) {
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Cargando proveedores...</p>
+        </div>
+      } @else {
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Proveedor</th>
+                <th>Contacto</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Dirección</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (sup of suppliers(); track sup.id) {
+                <tr>
+                  <td><strong class="text-primary">{{ sup.nombre }}</strong></td>
+                  <td>{{ sup.contacto || '—' }}</td>
+                  <td>{{ sup.telefono || '—' }}</td>
+                  <td>{{ sup.email || '—' }}</td>
+                  <td>{{ sup.direccion || '—' }}</td>
+                  <td>
+                    <span [class]="sup.activo ? 'badge badge-success' : 'badge badge-danger'">
+                      {{ sup.activo ? 'Activo' : 'Inactivo' }}
+                    </span>
+                  </td>
+                  <td class="action-cells">
+                    <button
+                      *appHasPermission="'proveedores.update'"
+                      (click)="openEditModal(sup)"
+                      class="btn btn-sm btn-secondary"
+                      title="Editar Proveedor"
+                    >
+                      ✏️ Editar
+                    </button>
+                    <button
+                      *appHasPermission="'proveedores.delete'"
+                      (click)="toggleActivo(sup)"
+                      [class]="sup.activo ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'"
+                      [title]="sup.activo ? 'Desactivar' : 'Activar'"
+                    >
+                      {{ sup.activo ? '🚫 Desactivar' : '✅ Activar' }}
+                    </button>
+                  </td>
+                </tr>
+              } @empty {
+                <tr>
+                  <td colspan="7" class="text-center text-muted py-4">No hay proveedores registrados.</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </div>
+  </main>
+
+  <!-- Modal Crear/Editar -->
+  @if (showModal()) {
+    <div class="modal-backdrop">
+      <div class="modal-card glass-card">
+        <div class="modal-header">
+          <h3>{{ isEditing() ? 'Editar Proveedor' : 'Nuevo Proveedor' }}</h3>
+          <button (click)="closeModal()" class="btn-close">&times;</button>
+        </div>
+
+        <form [formGroup]="supplierForm" (ngSubmit)="onSubmit()">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="nombre">Nombre de la Empresa / Proveedor *</label>
+              <input id="nombre" type="text" formControlName="nombre" class="form-control" placeholder="Ej. Textiles del Valle S.R.L." />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contacto">Persona de Contacto</label>
+                <input id="contacto" type="text" formControlName="contacto" class="form-control" placeholder="Ej. Juan Pérez" />
+              </div>
+
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" type="text" formControlName="telefono" class="form-control" placeholder="Ej. 76543210" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo Electrónico</label>
+              <input id="email" type="email" formControlName="email" class="form-control" placeholder="contacto@proveedor.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="direccion">Dirección</label>
+              <textarea id="direccion" formControlName="direccion" class="form-control" rows="2" placeholder="Zona Industrial, Calle 5 #100"></textarea>
+            </div>
+
+            <div class="form-check">
+              <input id="activo" type="checkbox" formControlName="activo" />
+              <label for="activo">Proveedor Activo</label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" (click)="closeModal()" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" [disabled]="supplierForm.invalid || isSaving()" class="btn btn-primary">
+              {{ isSaving() ? 'Guardando...' : (isEditing() ? 'Guardar Cambios' : 'Registrar Proveedor') }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</div>

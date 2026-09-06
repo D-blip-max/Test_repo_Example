@@ -1,0 +1,52 @@
+<div class="modal-overlay">
+  <div class="modal-card glass-card">
+    <div class="modal-header">
+      <h3>{{ role ? 'Editar Rol' : 'Crear Nuevo Rol' }}</h3>
+      <button (click)="onCancel()" class="close-btn">&times;</button>
+    </div>
+
+    @if (errorMessage()) {
+      <div class="alert alert-error">
+        <span>⚠️ {{ errorMessage() }}</span>
+      </div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="role-form">
+      <div class="form-group">
+        <label class="form-label" for="role_name">Nombre del Rol *</label>
+        <input
+          id="role_name"
+          type="text"
+          formControlName="name"
+          class="form-input"
+          placeholder="ej. editor"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="role_description">Descripción</label>
+        <textarea
+          id="role_description"
+          formControlName="description"
+          class="form-input"
+          rows="3"
+          placeholder="Descripción opcional del rol"
+        ></textarea>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" (click)="onCancel()" class="btn btn-secondary">
+          Cancelar
+        </button>
+        <button type="submit" class="btn btn-primary" [disabled]="isSaving() || form.invalid">
+          @if (isSaving()) {
+            <div class="spinner"></div>
+            <span>Guardando...</span>
+          } @else {
+            <span>{{ role ? 'Guardar Cambios' : 'Crear Rol' }}</span>
+          }
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+<div class="module-layout">
+  <header class="navbar glass-card">
+    <div class="nav-brand">
+      <span class="brand-title">🏪 Gestión de Sucursales</span>
+    </div>
+    <div class="nav-actions">
+      <button *appHasPermission="'sucursales.create'" (click)="openCreateModal()" class="btn btn-primary">
+        <span>➕ Nueva Sucursal</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="module-content">
+    @if (successMessage()) {
+      <div class="alert alert-success">
+        <span>✅ {{ successMessage() }}</span>
+      </div>
+    }
+
+    @if (errorMessage()) {
+      <div class="alert alert-error">
+        <span>⚠️ {{ errorMessage() }}</span>
+      </div>
+    }
+
+    <div class="card glass-card">
+      <div class="card-header">
+        <h3>Sucursales Registradas</h3>
+      </div>
+
+      @if (isLoading()) {
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Cargando sucursales...</p>
+        </div>
+      } @else {
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Ciudad</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (branch of branches(); track branch.id) {
+                <tr>
+                  <td><strong class="text-primary">{{ branch.nombre }}</strong></td>
+                  <td>{{ branch.ciudad }}</td>
+                  <td>{{ branch.direccion }}</td>
+                  <td>{{ branch.telefono || '—' }}</td>
+                  <td>
+                    <span [class]="branch.activa ? 'badge badge-success' : 'badge badge-danger'">
+                      {{ branch.activa ? 'Activa' : 'Inactiva' }}
+                    </span>
+                  </td>
+                  <td class="action-cells">
+                    <button
+                      *appHasPermission="'sucursales.update'"
+                      (click)="openEditModal(branch)"
+                      class="btn btn-sm btn-secondary"
+                      title="Editar Sucursal"
+                    >
+                      ✏️ Editar
+                    </button>
+                    <button
+                      *appHasPermission="'sucursales.delete'"
+                      (click)="toggleActiva(branch)"
+                      [class]="branch.activa ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'"
+                      [title]="branch.activa ? 'Desactivar' : 'Activar'"
+                    >
+                      {{ branch.activa ? '🚫 Desactivar' : '✅ Activar' }}
+                    </button>
+                  </td>
+                </tr>
+              } @empty {
+                <tr>
+                  <td colspan="6" class="text-center text-muted py-4">No hay sucursales registradas.</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </div>
+  </main>
+
+  <!-- Modal Crear/Editar -->
+  @if (showModal()) {
+    <div class="modal-backdrop">
+      <div class="modal-card glass-card">
+        <div class="modal-header">
+          <h3>{{ isEditing() ? 'Editar Sucursal' : 'Nueva Sucursal' }}</h3>
+          <button (click)="closeModal()" class="btn-close">&times;</button>
+        </div>
+
+        <form [formGroup]="branchForm" (ngSubmit)="onSubmit()">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="nombre">Nombre de Sucursal *</label>
+              <input id="nombre" type="text" formControlName="nombre" class="form-control" placeholder="Ej. Sucursal Central" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ciudad">Ciudad *</label>
+                <input id="ciudad" type="text" formControlName="ciudad" class="form-control" placeholder="Ej. La Paz" />
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" type="text" formControlName="telefono" class="form-control" placeholder="Ej. 22233344" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="direccion">Dirección *</label>
+              <textarea id="direccion" formControlName="direccion" class="form-control" rows="2" placeholder="Av. 16 de Julio #1234"></textarea>
+            </div>
+
+            <div class="form-check">
+              <input id="activa" type="checkbox" formControlName="activa" />
+              <label for="activa">Sucursal Activa</label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" (click)="closeModal()" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" [disabled]="branchForm.invalid || isSaving()" class="btn btn-primary">
+              {{ isSaving() ? 'Guardando...' : (isEditing() ? 'Guardar Cambios' : 'Crear Sucursal') }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,305 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">📜 Historial de Ventas</h1>
+        <p class="page-subtitle">Registro de transacciones presenciales y digitales</p>
+      </div>
+      <div class="header-actions">
+        <a routerLink="/ventas/pos" class="btn btn-primary" *appHasPermission="'ventas.create'">
+          💳 Terminal POS / Cobrar
+        </a>
+        <a routerLink="/ventas/reportes" class="btn btn-secondary" *appHasPermission="'ventas.reports'">
+          📊 Reportes
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container-fluid">
+
+    <div *ngIf="errorMessage()" class="alert alert-danger alert-dismissible">
+      <span>{{ errorMessage() }}</span>
+      <button type="button" class="btn-close" (click)="errorMessage.set(null)">×</button>
+    </div>
+
+    <div *ngIf="successMessage()" class="alert alert-success alert-dismissible">
+      <span>{{ successMessage() }}</span>
+      <button type="button" class="btn-close" (click)="successMessage.set(null)">×</button>
+    </div>
+
+    <!-- Filters Card -->
+    <div class="card glass-card mb-4">
+      <div class="card-body p-3">
+        <div class="row align-items-end">
+          <div class="col-md-4 mb-2 mb-md-0">
+            <label class="form-label">🏢 Sucursal:</label>
+            <select
+              class="form-select"
+              [ngModel]="selectedBranchId()"
+              (ngModelChange)="selectedBranchId.set($event); loadSales()">
+              <option value="">-- Todas las sucursales --</option>
+              <option *ngFor="let b of branches()" [value]="b.id">
+                {{ b.nombre }} ({{ b.ciudad }})
+              </option>
+            </select>
+          </div>
+
+          <div class="col-md-3 mb-2 mb-md-0">
+            <label class="form-label">🏷️ Canal de Venta:</label>
+            <select
+              class="form-select"
+              [ngModel]="selectedType()"
+              (ngModelChange)="selectedType.set($event); loadSales()">
+              <option value="">-- Todos los canales --</option>
+              <option value="PRESENCIAL">🏪 Presencial (Mostrador)</option>
+              <option value="DIGITAL">📱 Digital (App)</option>
+            </select>
+          </div>
+
+          <div class="col-md-3 mb-2 mb-md-0">
+            <label class="form-label">📊 Estado:</label>
+            <select
+              class="form-select"
+              [ngModel]="selectedStatus()"
+              (ngModelChange)="selectedStatus.set($event); loadSales()">
+              <option value="">-- Todos los estados --</option>
+              <option value="COMPLETADA">✅ Completada</option>
+              <option value="CANCELADA">🚫 Anulada / Cancelada</option>
+            </select>
+          </div>
+
+          <div class="col-md-2 text-end">
+            <button class="btn btn-outline w-100" (click)="loadSales()">
+              🔄 Refrescar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sales Table -->
+    <div class="card glass-card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="card-title">Transacciones Registradas</h3>
+        <span class="badge badge-info">{{ sales().length }} ventas</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>N° Recibo</th>
+                <th>Fecha</th>
+                <th>Sucursal</th>
+                <th>Cliente / Cajero</th>
+                <th>Método de Pago</th>
+                <th class="text-end">Monto Total</th>
+                <th class="text-center">Estado</th>
+                <th class="text-end">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="isLoading()">
+                <td colspan="8" class="text-center py-4">
+                  <div class="spinner"></div>
+                  <p class="text-muted mt-2">Cargando ventas...</p>
+                </td>
+              </tr>
+
+              <tr *ngIf="!isLoading() && sales().length === 0">
+                <td colspan="8" class="text-center py-4 text-muted">
+                  No se encontraron ventas con los filtros aplicados.
+                </td>
+              </tr>
+
+              <tr *ngFor="let s of sales()">
+                <td>
+                  <strong class="text-primary">{{ s.numero_recibo }}</strong>
+                  <span *ngIf="s.tipo === 'DIGITAL'" class="badge badge-purple text-xs ms-1">App</span>
+                </td>
+                <td>
+                  <span class="font-medium">{{ s.created_at | date:'dd/MM/yyyy HH:mm' }}</span>
+                </td>
+                <td>
+                  <span>{{ s.sucursal_nombre }}</span>
+                </td>
+                <td>
+                  <div>
+                    <span class="font-medium">{{ s.cliente_nombre || 'Cliente Casual' }}</span>
+                    <small class="d-block text-muted text-xs" *ngIf="s.cajero_nombre">
+                      Atendido por: {{ s.cajero_nombre }}
+                    </small>
+                  </div>
+                </td>
+                <td>
+                  <span class="badge badge-light border">
+                    {{ s.metodo_pago }}
+                  </span>
+                  <small *ngIf="s.referencia_pago" class="d-block text-muted text-xs">
+                    Ref: {{ s.referencia_pago }}
+                  </small>
+                </td>
+                <td class="text-end font-bold fs-6">
+                  {{ s.monto_total | number:'1.2-2' }} Bs.
+                </td>
+                <td class="text-center">
+                  <span
+                    class="badge"
+                    [class.badge-success]="s.estado === 'COMPLETADA'"
+                    [class.badge-danger]="s.estado === 'CANCELADA'">
+                    {{ s.estado }}
+                  </span>
+                </td>
+                <td class="text-end actions-cell">
+                  <button
+                    class="btn btn-sm btn-icon"
+                    (click)="openDetailModal(s)"
+                    title="Ver Recibo / Detalle">
+                    👁️
+                  </button>
+
+                  <ng-container *appHasPermission="'ventas.cancel'">
+                    <button
+                      *ngIf="s.estado === 'COMPLETADA'"
+                      class="btn btn-sm btn-outline-danger"
+                      (click)="openCancelModal(s)"
+                      title="Anular venta y devolver stock">
+                      🚫 Anular
+                    </button>
+                  </ng-container>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal Detalle / Recibo -->
+<div class="modal-backdrop" *ngIf="showDetailModal()">
+  <div class="modal-card receipt-modal">
+    <div class="modal-header">
+      <h3 class="modal-title">🧾 Detalle de Venta</h3>
+      <button type="button" class="btn-close" (click)="closeDetailModal()">×</button>
+    </div>
+    <div class="modal-body p-4" *ngIf="selectedSale() as sale">
+      <div class="receipt-paper" id="printable-receipt">
+        <div class="text-center mb-3">
+          <h4 class="m-0 fw-bold">TIENDA DE ROPA</h4>
+          <p class="text-muted text-xs m-0">{{ sale.sucursal_nombre }} ({{ sale.sucursal_ciudad }})</p>
+          <p class="text-muted text-xs m-0">Fecha: {{ sale.created_at | date:'dd/MM/yyyy HH:mm' }}</p>
+          <p class="fw-bold mt-2">RECIBO: {{ sale.numero_recibo }}</p>
+          <span
+            class="badge"
+            [class.badge-success]="sale.estado === 'COMPLETADA'"
+            [class.badge-danger]="sale.estado === 'CANCELADA'">
+            {{ sale.estado }}
+          </span>
+        </div>
+
+        <div class="receipt-divider"></div>
+
+        <div *ngIf="sale.motivo_cancelacion" class="alert alert-danger text-xs p-2 my-2">
+          <strong>Motivo Anulación:</strong> {{ sale.motivo_cancelacion }}
+        </div>
+
+        <div class="table-responsive my-2">
+          <table class="table table-sm table-borderless">
+            <thead>
+              <tr class="border-bottom">
+                <th>Cant</th>
+                <th>Descripción</th>
+                <th class="text-end">P.Unit</th>
+                <th class="text-end">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of sale.detalles">
+                <td>{{ item.cantidad }}</td>
+                <td>
+                  {{ item.producto_nombre }}
+                  <small class="d-block text-muted">{{ item.talla }}/{{ item.color }}</small>
+                </td>
+                <td class="text-end">{{ item.precio_unitario | number:'1.2-2' }}</td>
+                <td class="text-end font-bold">{{ item.subtotal | number:'1.2-2' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="receipt-divider"></div>
+
+        <div class="receipt-totals">
+          <div class="d-flex justify-content-between">
+            <span>TOTAL:</span>
+            <span class="fw-bold">{{ sale.monto_total | number:'1.2-2' }} Bs.</span>
+          </div>
+          <div class="d-flex justify-content-between text-muted text-xs">
+            <span>Pago:</span>
+            <span>{{ sale.metodo_pago }}</span>
+          </div>
+          <div class="d-flex justify-content-between text-muted text-xs" *ngIf="sale.monto_recibido">
+            <span>Monto Pagado:</span>
+            <span>{{ sale.monto_recibido | number:'1.2-2' }} Bs.</span>
+          </div>
+          <div class="d-flex justify-content-between text-muted text-xs" *ngIf="sale.cambio">
+            <span>Cambio / Vuelto:</span>
+            <span>{{ sale.cambio | number:'1.2-2' }} Bs.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions d-flex gap-2 mt-4">
+        <button type="button" class="btn btn-outline-secondary w-50" (click)="printReceipt()">
+          🖨️ Imprimir
+        </button>
+        <button type="button" class="btn btn-secondary w-50" (click)="closeDetailModal()">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Anulación de Venta -->
+<div class="modal-backdrop" *ngIf="showCancelModal()">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">🚫 Anular Venta: {{ saleToCancel()?.numero_recibo }}</h3>
+      <button type="button" class="btn-close" (click)="closeCancelModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="text-danger">
+        <strong>Atención:</strong> Al anular la venta, todas las prendas vendidas serán devueltas automáticamente al inventario de la sucursal.
+      </p>
+
+      <div class="form-group mb-3">
+        <label class="form-label">Motivo de la anulación *</label>
+        <textarea
+          class="form-control"
+          rows="3"
+          placeholder="Ej: Devolución por prenda fallada, error en cobro..."
+          [(ngModel)]="cancelReason"></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" (click)="closeCancelModal()">
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="confirmCancelSale()"
+          [disabled]="!cancelReason.trim() || isCancelling()">
+          {{ isCancelling() ? 'Anulando...' : 'Confirmar Anulación' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

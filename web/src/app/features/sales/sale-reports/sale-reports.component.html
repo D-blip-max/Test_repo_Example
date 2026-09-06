@@ -1,0 +1,192 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">📊 Reportes y Estadísticas de Ventas</h1>
+        <p class="page-subtitle">Métricas clave, desglose de ingresos y prendas más vendidas</p>
+      </div>
+      <div class="header-actions">
+        <a routerLink="/ventas/pos" class="btn btn-primary">
+          💳 Ir a Caja (POS)
+        </a>
+        <a routerLink="/ventas" class="btn btn-secondary">
+          📜 Historial de Ventas
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container-fluid">
+
+    <div *ngIf="errorMessage()" class="alert alert-danger alert-dismissible">
+      <span>{{ errorMessage() }}</span>
+      <button type="button" class="btn-close" (click)="errorMessage.set(null)">×</button>
+    </div>
+
+    <!-- Branch Filter Card -->
+    <div class="card glass-card mb-4 p-3">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <label class="form-label fw-bold">🏢 Filtrar por Sucursal:</label>
+          <select
+            class="form-select"
+            [ngModel]="selectedBranchId()"
+            (ngModelChange)="selectedBranchId.set($event); loadReports()">
+            <option value="">-- Todas las sucursales (Global) --</option>
+            <option *ngFor="let b of branches()" [value]="b.id">
+              {{ b.nombre }} ({{ b.ciudad }})
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6 text-end mt-3 mt-md-0">
+          <button class="btn btn-outline" (click)="loadReports()">
+            🔄 Actualizar Datos
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Key Metrics Row -->
+    <div class="stats-grid mb-4">
+      <div class="stat-card">
+        <div class="stat-icon bg-success-soft">💰</div>
+        <div class="stat-info">
+          <span class="stat-label">Ingresos Totales</span>
+          <span class="stat-value text-success">
+            {{ summary().ingresos_totales | number:'1.2-2' }} Bs.
+          </span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon bg-primary-soft">🛍️</div>
+        <div class="stat-info">
+          <span class="stat-label">Ventas Realizadas</span>
+          <span class="stat-value">{{ summary().total_ventas }}</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon bg-info-soft">🏷️</div>
+        <div class="stat-info">
+          <span class="stat-label">Ticket Promedio</span>
+          <span class="stat-value text-primary">
+            {{ summary().ticket_promedio | number:'1.2-2' }} Bs.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Payment Methods Breakdown -->
+      <div class="col-lg-4 mb-4">
+        <div class="card glass-card h-100">
+          <div class="card-header">
+            <h3 class="card-title">💳 Métodos de Pago</h3>
+          </div>
+          <div class="card-body">
+            <!-- Efectivo -->
+            <div class="payment-stat-item mb-3">
+              <div class="d-flex justify-content-between mb-1">
+                <span>💵 Efectivo</span>
+                <strong class="text-success">{{ summary().ventas_efectivo | number:'1.2-2' }} Bs. ({{ getPaymentPercentage(summary().ventas_efectivo) }}%)</strong>
+              </div>
+              <div class="progress" style="height: 8px;">
+                <div class="progress-bar bg-success" [style.width.%]="getPaymentPercentage(summary().ventas_efectivo)"></div>
+              </div>
+            </div>
+
+            <!-- QR -->
+            <div class="payment-stat-item mb-3">
+              <div class="d-flex justify-content-between mb-1">
+                <span>📱 Código QR</span>
+                <strong class="text-primary">{{ summary().ventas_qr | number:'1.2-2' }} Bs. ({{ getPaymentPercentage(summary().ventas_qr) }}%)</strong>
+              </div>
+              <div class="progress" style="height: 8px;">
+                <div class="progress-bar bg-primary" [style.width.%]="getPaymentPercentage(summary().ventas_qr)"></div>
+              </div>
+            </div>
+
+            <!-- Tarjeta -->
+            <div class="payment-stat-item">
+              <div class="d-flex justify-content-between mb-1">
+                <span>💳 Tarjeta</span>
+                <strong class="text-info">{{ summary().ventas_tarjeta | number:'1.2-2' }} Bs. ({{ getPaymentPercentage(summary().ventas_tarjeta) }}%)</strong>
+              </div>
+              <div class="progress" style="height: 8px;">
+                <div class="progress-bar bg-info" [style.width.%]="getPaymentPercentage(summary().ventas_tarjeta)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Selling Products Table -->
+      <div class="col-lg-8 mb-4">
+        <div class="card glass-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="card-title">🔥 Top 10 Prendas Más Vendidas</h3>
+            <span class="badge badge-primary">Ranking de Salida</span>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Prenda</th>
+                    <th>SKU</th>
+                    <th>Talla / Color</th>
+                    <th class="text-center">Unidades</th>
+                    <th class="text-end">Ingresos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngIf="isLoading()">
+                    <td colspan="6" class="text-center py-4">
+                      <div class="spinner"></div>
+                      <p class="text-muted mt-2">Cargando métricas...</p>
+                    </td>
+                  </tr>
+
+                  <tr *ngIf="!isLoading() && topProducts().length === 0">
+                    <td colspan="6" class="text-center py-4 text-muted">
+                      No hay datos de ventas para mostrar en este periodo.
+                    </td>
+                  </tr>
+
+                  <tr *ngFor="let p of topProducts(); let idx = index">
+                    <td class="font-bold text-center">
+                      <span *ngIf="idx === 0">🥇</span>
+                      <span *ngIf="idx === 1">🥈</span>
+                      <span *ngIf="idx === 2">🥉</span>
+                      <span *ngIf="idx > 2">{{ idx + 1 }}</span>
+                    </td>
+                    <td>
+                      <strong class="text-primary">{{ p.producto_nombre }}</strong>
+                    </td>
+                    <td><code>{{ p.variante_sku }}</code></td>
+                    <td>
+                      <span class="text-muted text-xs">
+                        {{ p.talla }} / {{ p.color }}
+                      </span>
+                    </td>
+                    <td class="text-center font-bold fs-6">
+                      {{ p.unidades_vendidas }}
+                    </td>
+                    <td class="text-end font-bold text-success">
+                      {{ p.ingresos_generados | number:'1.2-2' }} Bs.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

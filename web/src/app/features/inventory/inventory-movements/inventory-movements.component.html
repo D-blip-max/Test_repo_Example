@@ -1,0 +1,129 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">📜 Historial de Movimientos de Inventario</h1>
+        <p class="page-subtitle">Kardex de entradas, salidas, reservas y ajustes</p>
+      </div>
+      <div class="header-actions">
+        <a routerLink="/inventario" class="btn btn-secondary">
+          📦 Ver Stock
+        </a>
+        <a routerLink="/inventario/recepcion" class="btn btn-primary">
+          📥 Nueva Recepción
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container-fluid">
+
+    <div *ngIf="errorMessage()" class="alert alert-danger alert-dismissible">
+      <span>{{ errorMessage() }}</span>
+      <button type="button" class="btn-close" (click)="errorMessage.set(null)">×</button>
+    </div>
+
+    <!-- Filter Card -->
+    <div class="card glass-card mb-4">
+      <div class="card-body">
+        <div class="row align-items-end">
+          <div class="col-md-5 mb-3 mb-md-0">
+            <label class="form-label">🏢 Filtrar por Sucursal:</label>
+            <select
+              class="form-select"
+              [ngModel]="selectedBranchId()"
+              (ngModelChange)="selectedBranchId.set($event); onFilterChange()">
+              <option value="">-- Todas las sucursales --</option>
+              <option *ngFor="let b of branches()" [value]="b.id">
+                {{ b.nombre }} ({{ b.ciudad }})
+              </option>
+            </select>
+          </div>
+
+          <div class="col-md-5 mb-3 mb-md-0">
+            <label class="form-label">🏷️ Tipo de Movimiento:</label>
+            <select
+              class="form-select"
+              [ngModel]="selectedType()"
+              (ngModelChange)="selectedType.set($event); onFilterChange()">
+              <option value="">-- Todos los tipos --</option>
+              <option *ngFor="let t of movementTypes" [value]="t.value">
+                {{ t.label }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-md-2 text-end">
+            <button class="btn btn-outline w-100" (click)="loadMovements()">
+              🔄 Refrescar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Movements Table -->
+    <div class="card glass-card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="card-title">Registros de Movimiento</h3>
+        <span class="badge badge-info">{{ movements().length }} movimientos</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Fecha y Hora</th>
+                <th>Tipo</th>
+                <th class="text-center">Cantidad</th>
+                <th class="text-center">Stock Antes</th>
+                <th class="text-center">Stock Después</th>
+                <th>Referencia</th>
+                <th>Nota</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="isLoading()">
+                <td colspan="7" class="text-center py-4">
+                  <div class="spinner"></div>
+                  <p class="text-muted mt-2">Cargando movimientos...</p>
+                </td>
+              </tr>
+
+              <tr *ngIf="!isLoading() && movements().length === 0">
+                <td colspan="7" class="text-center py-4 text-muted">
+                  No se encontraron movimientos con los filtros seleccionados.
+                </td>
+              </tr>
+
+              <tr *ngFor="let m of movements()">
+                <td>
+                  <span class="font-medium">{{ m.created_at | date:'dd/MM/yyyy HH:mm' }}</span>
+                </td>
+                <td>
+                  <span class="badge" [ngClass]="getBadgeClass(m.tipo)">{{ m.tipo }}</span>
+                </td>
+                <td class="text-center font-bold" [class.text-success]="m.cantidad > 0" [class.text-danger]="m.cantidad < 0">
+                  {{ m.cantidad > 0 ? '+' + m.cantidad : m.cantidad }}
+                </td>
+                <td class="text-center text-muted">{{ m.stock_antes }}</td>
+                <td class="text-center font-bold">{{ m.stock_despues }}</td>
+                <td>
+                  <span class="badge badge-light" *ngIf="m.referencia">{{ m.referencia }}</span>
+                  <span class="text-muted" *ngIf="!m.referencia">-</span>
+                </td>
+                <td>
+                  <span class="text-sm" *ngIf="m.nota">{{ m.nota }}</span>
+                  <span class="text-muted" *ngIf="!m.nota">-</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

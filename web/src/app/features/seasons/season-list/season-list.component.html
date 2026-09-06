@@ -1,0 +1,169 @@
+<div class="module-layout">
+  <header class="navbar glass-card">
+    <div class="nav-brand">
+      <span class="brand-title">🔄 Gestión de Temporadas</span>
+    </div>
+    <div class="nav-actions">
+      <button *appHasPermission="'temporadas.create'" (click)="openCreateModal()" class="btn btn-primary">
+        <span>➕ Nueva Temporada</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Filtro por Año -->
+  <div class="filters-card glass-card mb-4">
+    <div class="filters-grid">
+      <div class="filter-item">
+        <label>Filtrar por Año</label>
+        <select [(ngModel)]="selectedYear" (change)="onYearFilterChange()" class="form-control">
+          <option [ngValue]="undefined">Todos los años</option>
+          <option [ngValue]="2024">2024</option>
+          <option [ngValue]="2025">2025</option>
+          <option [ngValue]="2026">2026</option>
+          <option [ngValue]="2027">2027</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <main class="module-content">
+    @if (successMessage()) {
+      <div class="alert alert-success">
+        <span>✅ {{ successMessage() }}</span>
+      </div>
+    }
+
+    @if (errorMessage()) {
+      <div class="alert alert-error">
+        <span>⚠️ {{ errorMessage() }}</span>
+      </div>
+    }
+
+    <div class="card glass-card">
+      <div class="card-header">
+        <h3>Temporadas Comerciales</h3>
+      </div>
+
+      @if (isLoading()) {
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Cargando temporadas...</p>
+        </div>
+      } @else {
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Temporada</th>
+                <th>Año</th>
+                <th>Período (Desde — Hasta)</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (season of seasons(); track season.id) {
+                <tr>
+                  <td><strong class="text-primary">{{ season.nombre }}</strong></td>
+                  <td><span class="badge badge-year">{{ season.anio }}</span></td>
+                  <td>
+                    <span>{{ season.fecha_inicio | date:'dd/MM/yyyy' }}</span>
+                    <span class="text-muted mx-2">—</span>
+                    <span>{{ season.fecha_fin | date:'dd/MM/yyyy' }}</span>
+                  </td>
+                  <td>
+                    <span [class]="season.activa ? 'badge badge-success' : 'badge badge-inactive'">
+                      {{ season.activa ? '⭐ Activa' : 'Inactiva' }}
+                    </span>
+                  </td>
+                  <td class="action-cells">
+                    <button
+                      *appHasPermission="'temporadas.update'"
+                      (click)="toggleActiva(season)"
+                      [class]="season.activa ? 'btn btn-sm btn-outline-warning' : 'btn btn-sm btn-outline-success'"
+                      [title]="season.activa ? 'Desactivar temporada' : 'Activar temporada'"
+                    >
+                      {{ season.activa ? '⏸️ Desactivar' : '⭐ Activar' }}
+                    </button>
+                    <button
+                      *appHasPermission="'temporadas.update'"
+                      (click)="openEditModal(season)"
+                      class="btn btn-sm btn-secondary"
+                      title="Editar Temporada"
+                    >
+                      ✏️ Editar
+                    </button>
+                    <button
+                      *appHasPermission="'temporadas.delete'"
+                      (click)="deleteSeason(season)"
+                      class="btn btn-sm btn-danger"
+                      title="Eliminar Temporada"
+                    >
+                      🗑️
+                    </button>
+                  </td>
+                </tr>
+              } @empty {
+                <tr>
+                  <td colspan="5" class="text-center text-muted py-4">No hay temporadas registradas.</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </div>
+  </main>
+
+  <!-- Modal Crear/Editar -->
+  @if (showModal()) {
+    <div class="modal-backdrop">
+      <div class="modal-card glass-card">
+        <div class="modal-header">
+          <h3>{{ isEditing() ? 'Editar Temporada' : 'Nueva Temporada' }}</h3>
+          <button (click)="closeModal()" class="btn-close">&times;</button>
+        </div>
+
+        <form [formGroup]="seasonForm" (ngSubmit)="onSubmit()">
+          <div class="modal-body">
+            <div class="form-row">
+              <div class="form-group flex-2">
+                <label for="nombre">Nombre de la Temporada *</label>
+                <input id="nombre" type="text" formControlName="nombre" class="form-control" placeholder="Ej. Primavera-Verano 2025" />
+              </div>
+
+              <div class="form-group">
+                <label for="anio">Año *</label>
+                <input id="anio" type="number" formControlName="anio" class="form-control" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fecha_inicio">Fecha de Inicio *</label>
+                <input id="fecha_inicio" type="date" formControlName="fecha_inicio" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label for="fecha_fin">Fecha de Fin *</label>
+                <input id="fecha_fin" type="date" formControlName="fecha_fin" class="form-control" />
+              </div>
+            </div>
+
+            <div class="form-check">
+              <input id="activa" type="checkbox" formControlName="activa" />
+              <label for="activa">Establecer como Temporada Activa de este año</label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" (click)="closeModal()" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" [disabled]="seasonForm.invalid || isSaving()" class="btn btn-primary">
+              {{ isSaving() ? 'Guardando...' : (isEditing() ? 'Guardar Cambios' : 'Crear Temporada') }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</div>

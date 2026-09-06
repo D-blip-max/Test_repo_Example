@@ -1,0 +1,116 @@
+<div class="roles-layout">
+  <header class="navbar glass-card">
+    <div class="nav-brand">
+      <span class="brand-title">🛡️ Gestión de Roles y Permisos</span>
+    </div>
+    <div class="nav-actions">
+      <button *appHasPermission="'roles.create'" (click)="openCreateModal()" class="btn btn-primary">
+        <span>➕ Nuevo Rol</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="roles-content">
+    @if (successMessage()) {
+      <div class="alert alert-success">
+        <span>✅</span>
+        <span>{{ successMessage() }}</span>
+      </div>
+    }
+
+    @if (errorMessage()) {
+      <div class="alert alert-error">
+        <span>⚠️</span>
+        <span>{{ errorMessage() }}</span>
+      </div>
+    }
+
+    <div class="card glass-card">
+      <div class="card-header">
+        <h3>Roles Configurados</h3>
+      </div>
+
+      @if (isLoading()) {
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Cargando roles...</p>
+        </div>
+      } @else {
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Permisos Asignados</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (role of roles(); track role.id) {
+                <tr>
+                  <td>
+                    <span class="role-name">{{ role.name }}</span>
+                    @if (role.name === 'admin') {
+                      <span class="badge badge-primary">Sistema</span>
+                    }
+                  </td>
+                  <td>{{ role.description || 'Sin descripción' }}</td>
+                  <td>
+                    <span class="badge badge-info">
+                      {{ role.permissions?.length || 0 }} permiso(s)
+                    </span>
+                  </td>
+                  <td class="action-cells">
+                    <a
+                      *appHasPermission="'roles.update'"
+                      [routerLink]="['/roles', role.id, 'permissions']"
+                      class="btn btn-sm btn-outline-info"
+                      title="Asignar Permisos"
+                    >
+                      🔑 Permisos
+                    </a>
+                    <button
+                      *appHasPermission="'roles.update'"
+                      (click)="openEditModal(role)"
+                      class="btn btn-sm btn-secondary"
+                      title="Editar Rol"
+                    >
+                      ✏️
+                    </button>
+                    <button
+                      *appHasPermission="'roles.delete'"
+                      (click)="deleteRole(role)"
+                      [disabled]="role.name === 'admin'"
+                      class="btn btn-sm btn-danger"
+                      title="Eliminar Rol"
+                    >
+                      🗑️
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </div>
+  </main>
+
+  <!-- Modals -->
+  @if (showFormModal()) {
+    <app-role-form
+      [role]="selectedRoleForEdit()"
+      (save)="onRoleSaved()"
+      (cancel)="closeFormModal()"
+    ></app-role-form>
+  }
+
+  @if (showPermissionsModal()) {
+    <app-role-permissions
+      [role]="selectedRoleForPermissions()"
+      (save)="onPermissionsSaved()"
+      (cancel)="closePermissionsModal()"
+    ></app-role-permissions>
+  }
+</div>

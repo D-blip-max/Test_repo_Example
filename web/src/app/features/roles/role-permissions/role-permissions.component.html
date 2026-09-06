@@ -1,0 +1,74 @@
+<div [class.modal-overlay]="!isStandaloneRoute()" [class.standalone-container]="isStandaloneRoute()">
+  <div class="modal-card glass-card modal-lg">
+    <div class="modal-header">
+      <h3>🔑 Asignar Permisos al Rol: <span class="highlight">{{ roleData()?.name }}</span></h3>
+      <button (click)="onCancel()" class="close-btn" title="Volver / Cerrar">&times;</button>
+    </div>
+
+    @if (errorMessage()) {
+      <div class="alert alert-error">
+        <span>⚠️ {{ errorMessage() }}</span>
+      </div>
+    }
+
+    @if (isLoading()) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Cargando matriz de permisos...</p>
+      </div>
+    } @else {
+      <div class="permissions-matrix">
+        @for (group of groupedPermissions(); track group.module) {
+          <div class="module-section">
+            <div class="module-header">
+              <label class="checkbox-container module-title">
+                <input
+                  type="checkbox"
+                  [checked]="isModuleAllSelected(group)"
+                  (change)="toggleModule(group)"
+                />
+                <span class="checkmark"></span>
+                <strong>Módulo: {{ group.module }}</strong>
+              </label>
+            </div>
+
+            <div class="permissions-grid">
+              @for (perm of group.permissions; track perm.id) {
+                <label
+                  class="checkbox-container permission-item"
+                  [class.disabled-checkbox]="roleData()?.name === 'admin' && perm.code === 'roles.update'"
+                >
+                  <input
+                    type="checkbox"
+                    [checked]="isPermissionSelected(perm.id)"
+                    [disabled]="roleData()?.name === 'admin' && perm.code === 'roles.update'"
+                    (change)="togglePermission(perm)"
+                  />
+                  <span class="checkmark"></span>
+                  <div class="perm-info">
+                    <span class="perm-code">{{ perm.code }}</span>
+                    <span class="perm-desc">{{ perm.description || perm.path }}</span>
+                  </div>
+                </label>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" (click)="onCancel()" class="btn btn-secondary">
+          Cancelar
+        </button>
+        <button type="button" (click)="onSave()" class="btn btn-primary" [disabled]="isSaving()">
+          @if (isSaving()) {
+            <div class="spinner"></div>
+            <span>Guardando...</span>
+          } @else {
+            <span>Guardar Permisos</span>
+          }
+        </button>
+      </div>
+    }
+  </div>
+</div>

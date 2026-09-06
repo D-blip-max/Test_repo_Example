@@ -1,0 +1,145 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">📥 Recepción de Mercadería</h1>
+        <p class="page-subtitle">Registra el ingreso de productos y lotes a una sucursal</p>
+      </div>
+      <div>
+        <a routerLink="/inventario" class="btn btn-secondary">
+          ⬅️ Volver a Inventario
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container-fluid">
+
+    <!-- Alert notifications -->
+    <div *ngIf="errorMessage()" class="alert alert-danger alert-dismissible">
+      <span>{{ errorMessage() }}</span>
+      <button type="button" class="btn-close" (click)="errorMessage.set(null)">×</button>
+    </div>
+
+    <div *ngIf="successMessage()" class="alert alert-success alert-dismissible">
+      <span>{{ successMessage() }}</span>
+      <button type="button" class="btn-close" (click)="successMessage.set(null)">×</button>
+    </div>
+
+    <form [formGroup]="receptionForm" (ngSubmit)="onSubmit()">
+      <div class="card glass-card mb-4">
+        <div class="card-header">
+          <h3 class="card-title">1. Datos Generales de Recepción</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label class="form-label">🏢 Sucursal Destino *</label>
+              <select class="form-select" formControlName="sucursal_id" required>
+                <option value="" disabled>Seleccione una sucursal</option>
+                <option *ngFor="let b of branches()" [value]="b.id">
+                  {{ b.nombre }} ({{ b.ciudad }})
+                </option>
+              </select>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label class="form-label">📄 N° Factura / Guía / Referencia</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="factura"
+                placeholder="Ej: FAC-98765 o GUIA-012">
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label class="form-label">📝 Observaciones / Nota</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="nota"
+                placeholder="Ej: Lote temporada Verano, proveedor Altiplano">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Items Section -->
+      <div class="card glass-card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <div>
+            <h3 class="card-title">2. Detalle de Variantes a Ingresar</h3>
+            <span class="text-muted text-xs">Total Unidades: <strong>{{ getTotalUnidades() }}</strong></span>
+          </div>
+          <button type="button" class="btn btn-sm btn-outline-primary" (click)="addItem()">
+            ➕ Agregar otra variante
+          </button>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th style="width: 50px;">#</th>
+                  <th>Variante de Producto *</th>
+                  <th style="width: 160px;" class="text-center">Cantidad *</th>
+                  <th style="width: 60px;" class="text-center">Quitar</th>
+                </tr>
+              </thead>
+              <tbody formArrayName="productos">
+                <tr *ngFor="let itemGroup of productosArray.controls; let i = index" [formGroupName]="i">
+                  <td class="text-muted text-center align-middle">{{ i + 1 }}</td>
+                  <td>
+                    <select class="form-select" formControlName="variante_id" required>
+                      <option value="" disabled>Seleccione variante...</option>
+                      <option *ngFor="let opt of variantOptions()" [value]="opt.id">
+                        {{ opt.label }}
+                      </option>
+                    </select>
+                  </td>
+                  <td class="text-center">
+                    <input
+                      type="number"
+                      min="1"
+                      class="form-control text-center font-bold"
+                      formControlName="cantidad"
+                      required>
+                  </td>
+                  <td class="text-center align-middle">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-icon text-danger"
+                      (click)="removeItem(i)"
+                      [disabled]="productosArray.length === 1"
+                      title="Quitar fila">
+                      🗑️
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center p-3">
+          <button type="button" class="btn btn-outline" (click)="addItem()">
+            ➕ Agregar Línea
+          </button>
+          <div class="d-flex gap-2">
+            <a routerLink="/inventario" class="btn btn-secondary">
+              Cancelar
+            </a>
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              [disabled]="receptionForm.invalid || isSubmitting() || getTotalUnidades() === 0">
+              {{ isSubmitting() ? 'Procesando...' : '📥 Confirmar Recepción' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

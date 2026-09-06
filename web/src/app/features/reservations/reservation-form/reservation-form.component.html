@@ -1,0 +1,167 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title">➕ Crear Nueva Reserva</h1>
+        <p class="page-subtitle">Selecciona los productos y la sucursal de retiro</p>
+      </div>
+      <div>
+        <a routerLink="/reservas" class="btn btn-secondary">
+          ⬅️ Volver a Reservas
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container-fluid">
+
+    <div *ngIf="errorMessage()" class="alert alert-danger alert-dismissible">
+      <span>{{ errorMessage() }}</span>
+      <button type="button" class="btn-close" (click)="errorMessage.set(null)">×</button>
+    </div>
+
+    <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+      <!-- Step 1: Branch & Pickup Date -->
+      <div class="card glass-card mb-4">
+        <div class="card-header">
+          <h3 class="card-title">1. Sucursal de Retiro y Horario</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">🏢 Sucursal para retirar *</label>
+              <select class="form-select" formControlName="sucursal_id" required>
+                <option value="" disabled>Seleccione una sucursal...</option>
+                <option *ngFor="let b of branches()" [value]="b.id">
+                  {{ b.nombre }} — {{ b.ciudad }} ({{ b.direccion }})
+                </option>
+              </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label">🕒 Fecha y Hora Esperada de Recogida *</label>
+              <input
+                type="datetime-local"
+                class="form-control"
+                formControlName="fecha_hora_esperada"
+                required>
+              <small class="text-muted">Las reservas se guardan por 24 horas a partir de su creación.</small>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">📝 Instrucciones o Nota adicional</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="nota"
+                placeholder="Ej: Pasará otra persona a recoger, probar antes de pagar...">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Items -->
+      <div class="card glass-card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <div>
+            <h3 class="card-title">2. Prendas a Reservar</h3>
+            <span class="text-muted text-xs">Máx. 10 productos por reserva (máx. 3 por variante)</span>
+          </div>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-primary"
+            (click)="addItem()"
+            [disabled]="itemsArray.length >= 10">
+            ➕ Agregar otra prenda
+          </button>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th style="width: 50px;">#</th>
+                  <th>Prenda / Variante *</th>
+                  <th style="width: 130px;" class="text-center">Cantidad *</th>
+                  <th style="width: 140px;" class="text-end">Precio Unit.</th>
+                  <th style="width: 140px;" class="text-end">Subtotal</th>
+                  <th style="width: 60px;" class="text-center">Quitar</th>
+                </tr>
+              </thead>
+              <tbody formArrayName="items">
+                <tr *ngFor="let itemGroup of itemsArray.controls; let i = index" [formGroupName]="i">
+                  <td class="text-muted text-center align-middle">{{ i + 1 }}</td>
+                  <td>
+                    <select class="form-select" formControlName="variante_id" required>
+                      <option value="" disabled>Seleccione prenda...</option>
+                      <option *ngFor="let opt of variantOptions()" [value]="opt.id">
+                        {{ opt.label }}
+                      </option>
+                    </select>
+                  </td>
+                  <td class="text-center">
+                    <input
+                      type="number"
+                      min="1"
+                      max="3"
+                      class="form-control text-center font-bold"
+                      formControlName="cantidad"
+                      required>
+                  </td>
+                  <td class="text-end align-middle">
+                    {{ getItemPrice(itemGroup.get('variante_id')?.value) | number:'1.2-2' }} Bs.
+                  </td>
+                  <td class="text-end align-middle font-bold">
+                    {{ getItemSubtotal(i) | number:'1.2-2' }} Bs.
+                  </td>
+                  <td class="text-center align-middle">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-icon text-danger"
+                      (click)="removeItem(i)"
+                      [disabled]="itemsArray.length === 1"
+                      title="Quitar fila">
+                      🗑️
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th colspan="4" class="text-end fs-5">Total Estimado a Pagar:</th>
+                  <th class="text-end font-bold fs-5 text-primary">
+                    {{ getTotalEstimado() | number:'1.2-2' }} Bs.
+                  </th>
+                  <th></th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center p-3">
+          <button
+            type="button"
+            class="btn btn-outline"
+            (click)="addItem()"
+            [disabled]="itemsArray.length >= 10">
+            ➕ Agregar otra prenda
+          </button>
+          <div class="d-flex gap-2">
+            <a routerLink="/reservas" class="btn btn-secondary">
+              Cancelar
+            </a>
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              [disabled]="reservationForm.invalid || isSubmitting() || getTotalEstimado() === 0">
+              {{ isSubmitting() ? 'Confirmando...' : '🔒 Confirmar Reserva' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
