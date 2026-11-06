@@ -1,0 +1,36 @@
+{"results":[{"name":"same SPA company to operator stops shared commercial services","status":"PASS"},{"name":"skip link retains route, Tab and Enter navigate with focus at 375px","status":"PASS"},{"name":"operator to company restores own contract and account skip link retains route","status":"PASS"}]}
+node:internal/process/promises:324
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+TargetClosedError2: "route.fetch: Request context disposed.
+Call log:
+  - → GET http://127.0.0.1:58015/api/v1/subscriptions/requests?limit=200
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36
+    - accept: application/json, text/plain, */*
+    - accept-encoding: gzip,deflate,br
+    - authorization: Bearer [REDACTED_QA_TOKEN]
+    - origin: http://127.0.0.1:54215
+    - referer: http://127.0.0.1:54215/
+    - sec-ch-ua: "Not:A-Brand";v="8", "Chromium";v="156", "Google Chrome";v="156"
+    - sec-ch-ua-mobile: ?0
+    - sec-ch-ua-platform: "Windows"
+" while running route callback.
+Consider awaiting `await page.unrouteAll({ behavior: 'ignoreErrors' })`
+before the end of the test to ignore remaining routes in flight.
+    at D:\SI2_Proyecto\Si2_Proyecto\web\e2e\saas-platform-transition.mjs:5:70 {
+  log: [
+    '  - → GET http://127.0.0.1:58015/api/v1/subscriptions/requests?limit=200',
+    '    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36',
+    '    - accept: application/json, text/plain, */*',
+    '    - accept-encoding: gzip,deflate,br',
+    '    - authorization: Bearer [REDACTED_QA_TOKEN]',
+    '    - origin: http://127.0.0.1:54215',
+    '    - referer: http://127.0.0.1:54215/',
+    '    - sec-ch-ua: "Not:A-Brand";v="8", "Chromium";v="156", "Google Chrome";v="156"',
+    '    - sec-ch-ua-mobile: ?0',
+    '    - sec-ch-ua-platform: "Windows"'
+  ]
+}
+
+Node.js v26.7.0

@@ -1,0 +1,1 @@
+Historical phase 8 drill is incompatible with the dedicated S1 platform identity. Use scripts/saas_s6_recovery_drill.py --run-local-disposable against its fixed empty local QA databases. No database was contacted.

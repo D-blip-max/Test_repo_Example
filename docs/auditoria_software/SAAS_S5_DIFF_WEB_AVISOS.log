@@ -1,0 +1,7 @@
+warning: in the working copy of 'src/app/app.routes.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/app/core/config/nav-modules.config.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/app/core/guards/permission.guard.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/app/core/layout/dashboard-layout/dashboard-layout.component.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/app/core/models/subscription.model.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/app/core/services/subscription.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/app/features/landing/saas-landing.component.ts', LF will be replaced by CRLF the next time Git touches it

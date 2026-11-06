@@ -1,0 +1,844 @@
+............EEEEEEEEE.EE................................................ [ 16%]
+.........................FF.......................................FFF... [ 32%]
+........................................................................ [ 48%]
+........................................................................ [ 65%]
+........................................................................ [ 81%]
+........................................................................ [ 97%]
+.........                                                                [100%]
+=================================== ERRORS ====================================
+_ ERROR at setup of test_login_catalog_reserve_cancel_wallet_purchase_history[0] _
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(b35e7aff-4036-44fa-bf6c-911a47e6dca1) already exists.
+
+The above exception was the direct cause of the following exception:
+tests\test_channel_journeys.py:26: in journey
+    db_session.add(customer);db_session.commit()
+                             ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2035: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1316: in commit
+    self._prepare_impl()
+<string>:2: in _prepare_impl
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1290: in _prepare_impl
+    self.session.flush()
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4353: in flush
+    self._flush(objects)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4488: in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py:122: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4449: in _flush
+    flush_context.execute()
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:465: in execute
+    rec.execute(self)
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:641: in execute
+    util.preloaded.orm_persistence.save_obj(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:94: in save_obj
+    _emit_insert_statements(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:1234: in _emit_insert_statements
+    result = connection.execute(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1421: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(b35e7aff-4036-44fa-bf6c-911a47e6dca1) already exists.
+E   
+E   [SQL: INSERT INTO subscriptions (id, tenant_id, plan_id, estado, fecha_inicio, fecha_vencimiento, notas, created_at, updated_at) VALUES (%(id)s::UUID, %(tenant_id)s::UUID, %(plan_id)s::UUID, %(estado)s, %(fecha_inicio)s, %(fecha_vencimiento)s, %(notas)s, %(created_at)s, %(updated_at)s)]
+E   [parameters: {'id': UUID('169d2c3b-66d7-48e1-abe9-200181371c07'), 'tenant_id': UUID('b35e7aff-4036-44fa-bf6c-911a47e6dca1'), 'plan_id': UUID('99a34ea4-e975-4dd4-a697-5fc6d7c85669'), 'estado': 'ACTIVA', 'fecha_inicio': datetime.date(2026, 11, 5), 'fecha_vencimiento': datetime.date(2027, 11, 5), 'notas': None, 'created_at': datetime.datetime(2026, 11, 6, 2, 49, 40, 848302, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2026, 11, 6, 2, 49, 40, 848306, tzinfo=datetime.timezone.utc)}]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ ERROR at setup of test_login_catalog_reserve_cancel_wallet_purchase_history[1] _
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(286dc277-d254-405c-97cc-092462344dd2) already exists.
+
+The above exception was the direct cause of the following exception:
+tests\test_channel_journeys.py:26: in journey
+    db_session.add(customer);db_session.commit()
+                             ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2035: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1316: in commit
+    self._prepare_impl()
+<string>:2: in _prepare_impl
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1290: in _prepare_impl
+    self.session.flush()
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4353: in flush
+    self._flush(objects)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4488: in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py:122: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4449: in _flush
+    flush_context.execute()
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:465: in execute
+    rec.execute(self)
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:641: in execute
+    util.preloaded.orm_persistence.save_obj(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:94: in save_obj
+    _emit_insert_statements(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:1234: in _emit_insert_statements
+    result = connection.execute(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1421: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(286dc277-d254-405c-97cc-092462344dd2) already exists.
+E   
+E   [SQL: INSERT INTO subscriptions (id, tenant_id, plan_id, estado, fecha_inicio, fecha_vencimiento, notas, created_at, updated_at) VALUES (%(id)s::UUID, %(tenant_id)s::UUID, %(plan_id)s::UUID, %(estado)s, %(fecha_inicio)s, %(fecha_vencimiento)s, %(notas)s, %(created_at)s, %(updated_at)s)]
+E   [parameters: {'id': UUID('121507ff-f17a-4e23-9818-e63f04fa31fc'), 'tenant_id': UUID('286dc277-d254-405c-97cc-092462344dd2'), 'plan_id': UUID('8d8d4964-df20-4e4f-a726-0b1812bde814'), 'estado': 'ACTIVA', 'fecha_inicio': datetime.date(2026, 11, 5), 'fecha_vencimiento': datetime.date(2027, 11, 5), 'notas': None, 'created_at': datetime.datetime(2026, 11, 6, 2, 49, 45, 131660, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2026, 11, 6, 2, 49, 45, 131664, tzinfo=datetime.timezone.utc)}]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ ERROR at setup of test_availability_does_not_offer_inactive_merchandise[product] _
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(d0358ae2-cd73-4d08-ba65-e033766ecb82) already exists.
+
+The above exception was the direct cause of the following exception:
+tests\test_channel_journeys.py:26: in journey
+    db_session.add(customer);db_session.commit()
+                             ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2035: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1316: in commit
+    self._prepare_impl()
+<string>:2: in _prepare_impl
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1290: in _prepare_impl
+    self.session.flush()
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4353: in flush
+    self._flush(objects)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4488: in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py:122: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4449: in _flush
+    flush_context.execute()
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:465: in execute
+    rec.execute(self)
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:641: in execute
+    util.preloaded.orm_persistence.save_obj(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:94: in save_obj
+    _emit_insert_statements(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:1234: in _emit_insert_statements
+    result = connection.execute(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1421: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(d0358ae2-cd73-4d08-ba65-e033766ecb82) already exists.
+E   
+E   [SQL: INSERT INTO subscriptions (id, tenant_id, plan_id, estado, fecha_inicio, fecha_vencimiento, notas, created_at, updated_at) VALUES (%(id)s::UUID, %(tenant_id)s::UUID, %(plan_id)s::UUID, %(estado)s, %(fecha_inicio)s, %(fecha_vencimiento)s, %(notas)s, %(created_at)s, %(updated_at)s)]
+E   [parameters: {'id': UUID('2763bc63-d3c4-4197-90e1-39625f8f9767'), 'tenant_id': UUID('d0358ae2-cd73-4d08-ba65-e033766ecb82'), 'plan_id': UUID('46966d8c-6041-4feb-be14-94b4c2d6a8c6'), 'estado': 'ACTIVA', 'fecha_inicio': datetime.date(2026, 11, 5), 'fecha_vencimiento': datetime.date(2027, 11, 5), 'notas': None, 'created_at': datetime.datetime(2026, 11, 6, 2, 49, 47, 669251, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2026, 11, 6, 2, 49, 47, 669256, tzinfo=datetime.timezone.utc)}]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ ERROR at setup of test_availability_does_not_offer_inactive_merchandise[branch] _
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(68d77099-be28-4b90-a358-b05817bcb473) already exists.
+
+The above exception was the direct cause of the following exception:
+tests\test_channel_journeys.py:26: in journey
+    db_session.add(customer);db_session.commit()
+                             ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2035: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1316: in commit
+    self._prepare_impl()
+<string>:2: in _prepare_impl
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1290: in _prepare_impl
+    self.session.flush()
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4353: in flush
+    self._flush(objects)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4488: in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py:122: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4449: in _flush
+    flush_context.execute()
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:465: in execute
+    rec.execute(self)
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:641: in execute
+    util.preloaded.orm_persistence.save_obj(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:94: in save_obj
+    _emit_insert_statements(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:1234: in _emit_insert_statements
+    result = connection.execute(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1421: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(68d77099-be28-4b90-a358-b05817bcb473) already exists.
+E   
+E   [SQL: INSERT INTO subscriptions (id, tenant_id, plan_id, estado, fecha_inicio, fecha_vencimiento, notas, created_at, updated_at) VALUES (%(id)s::UUID, %(tenant_id)s::UUID, %(plan_id)s::UUID, %(estado)s, %(fecha_inicio)s, %(fecha_vencimiento)s, %(notas)s, %(created_at)s, %(updated_at)s)]
+E   [parameters: {'id': UUID('0961f56c-efb3-4491-8552-ca91b1a11b05'), 'tenant_id': UUID('68d77099-be28-4b90-a358-b05817bcb473'), 'plan_id': UUID('63681256-6a61-489e-8c38-1ed7dd6d07b8'), 'estado': 'ACTIVA', 'fecha_inicio': datetime.date(2026, 11, 5), 'fecha_vencimiento': datetime.date(2027, 11, 5), 'notas': None, 'created_at': datetime.datetime(2026, 11, 6, 2, 49, 50, 366404, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2026, 11, 6, 2, 49, 50, 366409, tzinfo=datetime.timezone.utc)}]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ ERROR at setup of test_availability_does_not_offer_inactive_merchandise[variant] _
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(00861f27-193a-427c-9aac-63bd25962f9f) already exists.
+
+The above exception was the direct cause of the following exception:
+tests\test_channel_journeys.py:26: in journey
+    db_session.add(customer);db_session.commit()
+                             ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2035: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1316: in commit
+    self._prepare_impl()
+<string>:2: in _prepare_impl
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1290: in _prepare_impl
+    self.session.flush()
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4353: in flush
+    self._flush(objects)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4488: in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py:122: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4449: in _flush
+    flush_context.execute()
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:465: in execute
+    rec.execute(self)
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:641: in execute
+    util.preloaded.orm_persistence.save_obj(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:94: in save_obj
+    _emit_insert_statements(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:1234: in _emit_insert_statements
+    result = connection.execute(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1421: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(00861f27-193a-427c-9aac-63bd25962f9f) already exists.
+E   
+E   [SQL: INSERT INTO subscriptions (id, tenant_id, plan_id, estado, fecha_inicio, fecha_vencimiento, notas, created_at, updated_at) VALUES (%(id)s::UUID, %(tenant_id)s::UUID, %(plan_id)s::UUID, %(estado)s, %(fecha_inicio)s, %(fecha_vencimiento)s, %(notas)s, %(created_at)s, %(updated_at)s)]
+E   [parameters: {'id': UUID('47e2514e-4661-4425-be83-cb46337ccc39'), 'tenant_id': UUID('00861f27-193a-427c-9aac-63bd25962f9f'), 'plan_id': UUID('69fe5430-bcf2-420c-8b6a-995329aa75fa'), 'estado': 'ACTIVA', 'fecha_inicio': datetime.date(2026, 11, 5), 'fecha_vencimiento': datetime.date(2027, 11, 5), 'notas': None, 'created_at': datetime.datetime(2026, 11, 6, 2, 49, 53, 111438, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2026, 11, 6, 2, 49, 53, 111443, tzinfo=datetime.timezone.utc)}]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ ERROR at setup of test_admin_crud_contract_and_customer_mutation_denial[/categorias-payload0-changes0] _
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(baa53800-98c0-4d22-af6c-43a7a89aaf84) already exists.
+
+The above exception was the direct cause of the following exception:
+tests\test_channel_journeys.py:26: in journey
+    db_session.add(customer);db_session.commit()
+                             ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2035: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1316: in commit
+    self._prepare_impl()
+<string>:2: in _prepare_impl
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1290: in _prepare_impl
+    self.session.flush()
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4353: in flush
+    self._flush(objects)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4488: in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py:122: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4449: in _flush
+    flush_context.execute()
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:465: in execute
+    rec.execute(self)
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:641: in execute
+    util.preloaded.orm_persistence.save_obj(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:94: in save_obj
+    _emit_insert_statements(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:1234: in _emit_insert_statements
+    result = connection.execute(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1421: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(baa53800-98c0-4d22-af6c-43a7a89aaf84) already exists.
+E   
+E   [SQL: INSERT INTO subscriptions (id, tenant_id, plan_id, estado, fecha_inicio, fecha_vencimiento, notas, created_at, updated_at) VALUES (%(id)s::UUID, %(tenant_id)s::UUID, %(plan_id)s::UUID, %(estado)s, %(fecha_inicio)s, %(fecha_vencimiento)s, %(notas)s, %(created_at)s, %(updated_at)s)]
+E   [parameters: {'id': UUID('409a4056-1260-4ede-8e4c-eeeb623be046'), 'tenant_id': UUID('baa53800-98c0-4d22-af6c-43a7a89aaf84'), 'plan_id': UUID('8f444a0f-8b9f-4361-bc30-d3294823d575'), 'estado': 'ACTIVA', 'fecha_inicio': datetime.date(2026, 11, 5), 'fecha_vencimiento': datetime.date(2027, 11, 5), 'notas': None, 'created_at': datetime.datetime(2026, 11, 6, 2, 49, 55, 487861, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2026, 11, 6, 2, 49, 55, 487866, tzinfo=datetime.timezone.utc)}]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ ERROR at setup of test_admin_crud_contract_and_customer_mutation_denial[/proveedores-payload1-changes1] _
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(37c6986c-2c51-4be2-aba9-e2a5d90882f5) already exists.
+
+The above exception was the direct cause of the following exception:
+tests\test_channel_journeys.py:26: in journey
+    db_session.add(customer);db_session.commit()
+                             ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2035: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1316: in commit
+    self._prepare_impl()
+<string>:2: in _prepare_impl
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1290: in _prepare_impl
+    self.session.flush()
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4353: in flush
+    self._flush(objects)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4488: in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py:122: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4449: in _flush
+    flush_context.execute()
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:465: in execute
+    rec.execute(self)
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:641: in execute
+    util.preloaded.orm_persistence.save_obj(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:94: in save_obj
+    _emit_insert_statements(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:1234: in _emit_insert_statements
+    result = connection.execute(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1421: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(37c6986c-2c51-4be2-aba9-e2a5d90882f5) already exists.
+E   
+E   [SQL: INSERT INTO subscriptions (id, tenant_id, plan_id, estado, fecha_inicio, fecha_vencimiento, notas, created_at, updated_at) VALUES (%(id)s::UUID, %(tenant_id)s::UUID, %(plan_id)s::UUID, %(estado)s, %(fecha_inicio)s, %(fecha_vencimiento)s, %(notas)s, %(created_at)s, %(updated_at)s)]
+E   [parameters: {'id': UUID('554c5840-6f6e-43b4-b3c1-2c98866c9a15'), 'tenant_id': UUID('37c6986c-2c51-4be2-aba9-e2a5d90882f5'), 'plan_id': UUID('387a3f54-f11b-4a54-b156-5160be971839'), 'estado': 'ACTIVA', 'fecha_inicio': datetime.date(2026, 11, 5), 'fecha_vencimiento': datetime.date(2027, 11, 5), 'notas': None, 'created_at': datetime.datetime(2026, 11, 6, 2, 49, 58, 200879, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2026, 11, 6, 2, 49, 58, 200883, tzinfo=datetime.timezone.utc)}]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ ERROR at setup of test_admin_crud_contract_and_customer_mutation_denial[/temporadas-payload2-changes2] _
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(c4920f78-3fb7-477c-8673-bef27f482979) already exists.
+
+The above exception was the direct cause of the following exception:
+tests\test_channel_journeys.py:26: in journey
+    db_session.add(customer);db_session.commit()
+                             ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2035: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1316: in commit
+    self._prepare_impl()
+<string>:2: in _prepare_impl
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1290: in _prepare_impl
+    self.session.flush()
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4353: in flush
+    self._flush(objects)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4488: in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py:122: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4449: in _flush
+    flush_context.execute()
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:465: in execute
+    rec.execute(self)
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:641: in execute
+    util.preloaded.orm_persistence.save_obj(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:94: in save_obj
+    _emit_insert_statements(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:1234: in _emit_insert_statements
+    result = connection.execute(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1421: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(c4920f78-3fb7-477c-8673-bef27f482979) already exists.
+E   
+E   [SQL: INSERT INTO subscriptions (id, tenant_id, plan_id, estado, fecha_inicio, fecha_vencimiento, notas, created_at, updated_at) VALUES (%(id)s::UUID, %(tenant_id)s::UUID, %(plan_id)s::UUID, %(estado)s, %(fecha_inicio)s, %(fecha_vencimiento)s, %(notas)s, %(created_at)s, %(updated_at)s)]
+E   [parameters: {'id': UUID('91f1f09f-8f02-42a4-bb4a-9fea4b0b3a0e'), 'tenant_id': UUID('c4920f78-3fb7-477c-8673-bef27f482979'), 'plan_id': UUID('ce615840-829b-4b13-8f1d-215e55a8f322'), 'estado': 'ACTIVA', 'fecha_inicio': datetime.date(2026, 11, 5), 'fecha_vencimiento': datetime.date(2027, 11, 5), 'notas': None, 'created_at': datetime.datetime(2026, 11, 6, 2, 50, 1, 587338, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2026, 11, 6, 2, 50, 1, 587397, tzinfo=datetime.timezone.utc)}]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ ERROR at setup of test_admin_crud_contract_and_customer_mutation_denial[/sucursales-payload3-changes3] _
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(64f0e721-be52-4e38-b468-59c645483c68) already exists.
+
+The above exception was the direct cause of the following exception:
+tests\test_channel_journeys.py:26: in journey
+    db_session.add(customer);db_session.commit()
+                             ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2035: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1316: in commit
+    self._prepare_impl()
+<string>:2: in _prepare_impl
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1290: in _prepare_impl
+    self.session.flush()
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4353: in flush
+    self._flush(objects)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4488: in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py:122: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4449: in _flush
+    flush_context.execute()
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:465: in execute
+    rec.execute(self)
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:641: in execute
+    util.preloaded.orm_persistence.save_obj(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:94: in save_obj
+    _emit_insert_statements(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:1234: in _emit_insert_statements
+    result = connection.execute(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1421: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(64f0e721-be52-4e38-b468-59c645483c68) already exists.
+E   
+E   [SQL: INSERT INTO subscriptions (id, tenant_id, plan_id, estado, fecha_inicio, fecha_vencimiento, notas, created_at, updated_at) VALUES (%(id)s::UUID, %(tenant_id)s::UUID, %(plan_id)s::UUID, %(estado)s, %(fecha_inicio)s, %(fecha_vencimiento)s, %(notas)s, %(created_at)s, %(updated_at)s)]
+E   [parameters: {'id': UUID('f04a9e8c-7ed5-46a0-998c-54c184df2bf2'), 'tenant_id': UUID('64f0e721-be52-4e38-b468-59c645483c68'), 'plan_id': UUID('efb03aa5-a4d1-48b1-9ef5-219749bf87e0'), 'estado': 'ACTIVA', 'fecha_inicio': datetime.date(2026, 11, 5), 'fecha_vencimiento': datetime.date(2027, 11, 5), 'notas': None, 'created_at': datetime.datetime(2026, 11, 6, 2, 50, 4, 573616, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2026, 11, 6, 2, 50, 4, 573621, tzinfo=datetime.timezone.utc)}]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ ERROR at setup of test_admin_catalog_reception_reservation_cash_receipt_and_reports _
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(3ed4d6f2-783c-44df-8162-13c2b86bb151) already exists.
+
+The above exception was the direct cause of the following exception:
+tests\test_channel_journeys.py:26: in journey
+    db_session.add(customer);db_session.commit()
+                             ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2035: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1316: in commit
+    self._prepare_impl()
+<string>:2: in _prepare_impl
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1290: in _prepare_impl
+    self.session.flush()
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4353: in flush
+    self._flush(objects)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4488: in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py:122: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4449: in _flush
+    flush_context.execute()
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:465: in execute
+    rec.execute(self)
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:641: in execute
+    util.preloaded.orm_persistence.save_obj(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:94: in save_obj
+    _emit_insert_statements(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:1234: in _emit_insert_statements
+    result = connection.execute(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1421: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(3ed4d6f2-783c-44df-8162-13c2b86bb151) already exists.
+E   
+E   [SQL: INSERT INTO subscriptions (id, tenant_id, plan_id, estado, fecha_inicio, fecha_vencimiento, notas, created_at, updated_at) VALUES (%(id)s::UUID, %(tenant_id)s::UUID, %(plan_id)s::UUID, %(estado)s, %(fecha_inicio)s, %(fecha_vencimiento)s, %(notas)s, %(created_at)s, %(updated_at)s)]
+E   [parameters: {'id': UUID('6f5cd99e-5e9e-4d76-aeeb-e4010b75bc4e'), 'tenant_id': UUID('3ed4d6f2-783c-44df-8162-13c2b86bb151'), 'plan_id': UUID('69afc2b2-7961-4ab1-88c4-d65eff774c88'), 'estado': 'ACTIVA', 'fecha_inicio': datetime.date(2026, 11, 5), 'fecha_vencimiento': datetime.date(2027, 11, 5), 'notas': None, 'created_at': datetime.datetime(2026, 11, 6, 2, 50, 11, 368210, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2026, 11, 6, 2, 50, 11, 368215, tzinfo=datetime.timezone.utc)}]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ ERROR at setup of test_customer_cannot_create_discounts_but_can_validate_an_authorized_coupon _
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(a356ff9c-384f-4365-90ae-e8ab521633cf) already exists.
+
+The above exception was the direct cause of the following exception:
+tests\test_channel_journeys.py:26: in journey
+    db_session.add(customer);db_session.commit()
+                             ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2035: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1316: in commit
+    self._prepare_impl()
+<string>:2: in _prepare_impl
+    ???
+.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py:137: in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:1290: in _prepare_impl
+    self.session.flush()
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4353: in flush
+    self._flush(objects)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4488: in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py:122: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:4449: in _flush
+    flush_context.execute()
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:465: in execute
+    rec.execute(self)
+.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py:641: in execute
+    util.preloaded.orm_persistence.save_obj(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:94: in save_obj
+    _emit_insert_statements(
+.venv\Lib\site-packages\sqlalchemy\orm\persistence.py:1234: in _emit_insert_statements
+    result = connection.execute(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1421: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_subscription_tenant"
+E   DETAIL:  Key (tenant_id)=(a356ff9c-384f-4365-90ae-e8ab521633cf) already exists.
+E   
+E   [SQL: INSERT INTO subscriptions (id, tenant_id, plan_id, estado, fecha_inicio, fecha_vencimiento, notas, created_at, updated_at) VALUES (%(id)s::UUID, %(tenant_id)s::UUID, %(plan_id)s::UUID, %(estado)s, %(fecha_inicio)s, %(fecha_vencimiento)s, %(notas)s, %(created_at)s, %(updated_at)s)]
+E   [parameters: {'id': UUID('20bef3b4-88e2-497e-a105-b5e38671b7bf'), 'tenant_id': UUID('a356ff9c-384f-4365-90ae-e8ab521633cf'), 'plan_id': UUID('424a75de-e769-4bac-a397-24e9ca5001ff'), 'estado': 'ACTIVA', 'fecha_inicio': datetime.date(2026, 11, 5), 'fecha_vencimiento': datetime.date(2027, 11, 5), 'notas': None, 'created_at': datetime.datetime(2026, 11, 6, 2, 50, 13, 956842, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2026, 11, 6, 2, 50, 13, 956847, tzinfo=datetime.timezone.utc)}]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+================================== FAILURES ===================================
+________________ test_concurrent_replay_has_one_effect[False] _________________
+tests\test_offline_invariants.py:181: in test_concurrent_replay_has_one_effect
+    assert count==1
+E   assert 0 == 1
+_________________ test_concurrent_replay_has_one_effect[True] _________________
+tests\test_offline_invariants.py:181: in test_concurrent_replay_has_one_effect
+    assert count==1
+E   assert 0 == 1
+___________________ test_concurrent_money_operations[debit] ___________________
+tests\test_payment_invariants.py:360: in test_concurrent_money_operations
+    if operation=='debit':assert sum(results)==1 and wallet.saldo_actual==5
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert (0 == 1)
+E    +  where 0 = sum([0, 0])
+________________ test_concurrent_money_operations[debit-same] _________________
+tests\test_payment_invariants.py:361: in test_concurrent_money_operations
+    if operation=='debit-same':assert sum(results)==2 and wallet.saldo_actual==40 and db.query(Sale).count()==1
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert (0 == 2)
+E    +  where 0 = sum([0, 0])
+__________________ test_concurrent_money_operations[capture] __________________
+tests\test_payment_invariants.py:331: in test_concurrent_money_operations
+    oid=start_payment(db,user,db.get(ProductVariant,variant_id),db.get(Branch,branch_id))['order_id']
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\support_payments.py:41: in start_payment
+    return PaymentFlowService.create(db,user,data,purpose=purpose)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\services\payment_flow_service.py:99: in create
+    licensed=EntitlementService.check(db,user)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\services\entitlement_service.py:65: in check
+    if not result['active']:raise HTTPException(403,'Servicio restringido: requiere un per�odo contratado vigente')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   fastapi.exceptions.HTTPException: 403: Servicio restringido: requiere un per�odo contratado vigente
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+app\main.py:62
+  D:\SI2_Proyecto\Si2_Proyecto\backend\app\main.py:62: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+.venv\Lib\site-packages\fastapi\applications.py:4681
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\applications.py:4681: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)  # ty: ignore[deprecated]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_offline_invariants.py::test_concurrent_replay_has_one_effect[False]
+FAILED tests/test_offline_invariants.py::test_concurrent_replay_has_one_effect[True]
+FAILED tests/test_payment_invariants.py::test_concurrent_money_operations[debit]
+FAILED tests/test_payment_invariants.py::test_concurrent_money_operations[debit-same]
+FAILED tests/test_payment_invariants.py::test_concurrent_money_operations[capture]
+ERROR tests/test_channel_journeys.py::test_login_catalog_reserve_cancel_wallet_purchase_history[0]
+ERROR tests/test_channel_journeys.py::test_login_catalog_reserve_cancel_wallet_purchase_history[1]
+ERROR tests/test_channel_journeys.py::test_availability_does_not_offer_inactive_merchandise[product]
+ERROR tests/test_channel_journeys.py::test_availability_does_not_offer_inactive_merchandise[branch]
+ERROR tests/test_channel_journeys.py::test_availability_does_not_offer_inactive_merchandise[variant]
+ERROR tests/test_channel_journeys.py::test_admin_crud_contract_and_customer_mutation_denial[/categorias-payload0-changes0]
+ERROR tests/test_channel_journeys.py::test_admin_crud_contract_and_customer_mutation_denial[/proveedores-payload1-changes1]
+ERROR tests/test_channel_journeys.py::test_admin_crud_contract_and_customer_mutation_denial[/temporadas-payload2-changes2]
+ERROR tests/test_channel_journeys.py::test_admin_crud_contract_and_customer_mutation_denial[/sucursales-payload3-changes3]
+ERROR tests/test_channel_journeys.py::test_admin_catalog_reception_reservation_cash_receipt_and_reports
+ERROR tests/test_channel_journeys.py::test_customer_cannot_create_discounts_but_can_validate_an_authorized_coupon
+5 failed, 425 passed, 3 warnings, 11 errors in 450.09s (0:07:30)

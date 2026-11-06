@@ -1,0 +1,38 @@
+......F................................................................. [ 57%]
+.....................................................                    [100%]
+================================== FAILURES ===================================
+_____ test_no_license_all_commercial_writers_reject_before_body_or_effect _____
+tests\test_saas_entitlements.py:118: in test_no_license_all_commercial_writers_reject_before_body_or_effect
+    assert response.status_code==403,(method,path,response.text)
+E   AssertionError: ('post', '/api/v1/chatbot/message', '{"detail":[{"type":"missing","loc":["body","message"],"msg":"Field required","input":{}}]}')
+E   assert 422 == 403
+E    +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+app\main.py:62
+  D:\SI2_Proyecto\Si2_Proyecto\backend\app\main.py:62: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+.venv\Lib\site-packages\fastapi\applications.py:4681
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\applications.py:4681: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)  # ty: ignore[deprecated]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_saas_entitlements.py::test_no_license_all_commercial_writers_reject_before_body_or_effect
+1 failed, 124 passed, 3 warnings in 55.06s

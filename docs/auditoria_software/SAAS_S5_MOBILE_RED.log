@@ -1,0 +1,46 @@
+
+┌─────────────────────────────────────────────────────────┐
+│ A new version of Flutter is available!                  │
+│                                                         │
+│ To update to the latest version, run "flutter upgrade". │
+└─────────────────────────────────────────────────────────┘
+00:00 +0: loading D:/SI2_Proyecto/Si2_Proyecto/mobile/test/platform_scope_test.dart
+00:00 +0: operator login does not activate a commercial scope or persist its token
+00:00 +0 -1: operator login does not activate a commercial scope or persist its token [E]
+  Expected: <false>
+    Actual: <true>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\platform_scope_test.dart 25:3                  main.<fn>
+  
+Warning: At least one test in this suite creates an HttpClient. When running a test suite that uses
+TestWidgetsFlutterBinding, all HTTP requests will return status code 400, and no network request
+will actually be made. Any test expecting a real network connection and status code will fail.
+To test code that needs an HttpClient, provide your own HttpClient implementation to the code under
+test, so that your test can consistently provide a testable response to the code under test.
+00:00 +0 -1: restored platform profile is not accepted as a mobile company session
+00:00 +0 -2: restored platform profile is not accepted as a mobile company session [E]
+  Expected: <false>
+    Actual: <true>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\platform_scope_test.dart 30:3                  main.<fn>
+  
+00:00 +0 -2: legacy profile never manufactures platform scope
+00:00 +0 -3: legacy profile never manufactures platform scope [E]
+  Expected: 'COMPANY'
+    Actual: <null>
+     Which: not an <Instance of 'String'>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\platform_scope_test.dart 34:3                  main.<fn>
+  
+00:00 +0 -3: Some tests failed.
+
+Failing tests:
+  D:/SI2_Proyecto/Si2_Proyecto/mobile/test/platform_scope_test.dart: legacy profile never manufactures platform scope
+  D:/SI2_Proyecto/Si2_Proyecto/mobile/test/platform_scope_test.dart: operator login does not activate a commercial scope or persist its token
+  D:/SI2_Proyecto/Si2_Proyecto/mobile/test/platform_scope_test.dart: restored platform profile is not accepted as a mobile company session

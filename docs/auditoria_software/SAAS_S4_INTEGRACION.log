@@ -1,0 +1,38 @@
+........................................................................ [ 61%]
+..........................F...................                           [100%]
+================================== FAILURES ===================================
+___________ test_subscription_query_does_not_provision_a_free_plan ____________
+tests\test_tenant_contract.py:221: in test_subscription_query_does_not_provision_a_free_plan
+    assert response.status_code==403,response.text
+E   AssertionError: {"tenant":{"id":"e2801881-f5c8-406a-9318-346bebb696bf","nombre":"a","razon_social":"a","nit_rut":"a","slug":"a","logo_url":null,"color_primario":"#4f46e5","color_secundario":"#818cf8","eslogan":null,"telefono":null,"email_contacto":null,"paypal_client_id":null,"paypal_mode":"sandbox","activo":true,"plan_codigo":null,"plan_nombre":null},"plan":{"id":"a829a042-6560-4609-9eb8-d48a9456a647","codigo":"SHOP_TEST_a","nombre":"Explicit shop test contract","descripcion":null,"max_sucursales":20,"permite_reportes_ia":true,"permite_offline":true,"precio_mensual_bob":null,"activo":true},"estado_efectivo":"ACTIVA","service_restricted":false,"features":{"reportes_ia":true,"analitica_avanzada":true,"offline":true},"term_id":"3a798663-b810-46e5-875e-cd1eae2cb54d","origen":"REFERENCIA_LEGADA","estado":"ACTIVA","fecha_inicio":"2026-11-05","fecha_vencimiento":"2026-12-05","dias_restantes":31,"sucursales_usadas":2,"sucursales_maximas":20,"sucursales_disponibles":18,"porcentaje_sucursales_usadas":10.0,"permite_reportes_ia":true,"permite_offline":true,"mensaje_alerta":null}
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+app\main.py:62
+  D:\SI2_Proyecto\Si2_Proyecto\backend\app\main.py:62: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+.venv\Lib\site-packages\fastapi\applications.py:4681
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\applications.py:4681: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)  # ty: ignore[deprecated]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_tenant_contract.py::test_subscription_query_does_not_provision_a_free_plan
+1 failed, 117 passed, 3 warnings in 37.62s

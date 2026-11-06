@@ -1,0 +1,119 @@
+........................................................................ [ 18%]
+........................................................................ [ 37%]
+........................................................................ [ 55%]
+.........................................................F.............. [ 74%]
+........................................................................ [ 92%]
+............................                                             [100%]
+================================== FAILURES ===================================
+_________ test_explicit_upgrade_is_repeatable_without_contract_edits __________
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   psycopg2.errors.UndefinedColumn: column subscription_plans_1.catalog_managed does not exist
+E   LINE 1: ...on_plans_1.activo AS subscription_plans_1_activo, subscripti...
+E                                                                ^
+
+The above exception was the direct cause of the following exception:
+tests\test_saas_plan_catalog.py:182: in test_explicit_upgrade_is_repeatable_without_contract_edits
+    connection.execute(Subscription.__table__.insert().values(id=sub_id,tenant_id=saas_actors['a_company'].id,
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\attributes.py:569: in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\attributes.py:1096: in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\attributes.py:1126: in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\state.py:828: in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+.venv\Lib\site-packages\sqlalchemy\orm\loading.py:1674: in load_scalar_attributes
+    result = load_on_ident(
+.venv\Lib\site-packages\sqlalchemy\orm\loading.py:510: in load_on_ident
+    return load_on_pk_identity(
+.venv\Lib\site-packages\sqlalchemy\orm\loading.py:706: in load_on_pk_identity
+    return result.one()
+           ^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\engine\result.py:1867: in one
+    return self._only_one_row(
+.venv\Lib\site-packages\sqlalchemy\engine\result.py:796: in _only_one_row
+    row: Optional[_InterimRowType[Any]] = onerow(hard_close=True)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\engine\result.py:1730: in _fetchone_impl
+    return self._real_result._fetchone_impl(hard_close=hard_close)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\engine\result.py:2326: in _fetchone_impl
+    row = next(self.iterator, _NO_ROW)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\sqlalchemy\orm\loading.py:247: in chunks
+    post_load.invoke(context, path)
+.venv\Lib\site-packages\sqlalchemy\orm\loading.py:1564: in invoke
+    loader(
+.venv\Lib\site-packages\sqlalchemy\orm\strategies.py:1447: in _load_for_path
+    value = lazyloader._load_for_state(
+.venv\Lib\site-packages\sqlalchemy\orm\strategies.py:978: in _load_for_state
+    return self._emit_lazyload(
+.venv\Lib\site-packages\sqlalchemy\orm\strategies.py:1141: in _emit_lazyload
+    result = session.execute(
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2373: in execute
+    return self._execute_internal(
+.venv\Lib\site-packages\sqlalchemy\orm\session.py:2271: in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+.venv\Lib\site-packages\sqlalchemy\orm\context.py:306: in orm_execute_statement
+    result = conn.execute(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1421: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column subscription_plans_1.catalog_managed does not exist
+E   LINE 1: ...on_plans_1.activo AS subscription_plans_1_activo, subscripti...
+E                                                                ^
+E   
+E   [SQL: SELECT subscriptions.id AS subscriptions_id, subscriptions.tenant_id AS subscriptions_tenant_id, subscriptions.plan_id AS subscriptions_plan_id, subscriptions.estado AS subscriptions_estado, subscriptions.fecha_inicio AS subscriptions_fecha_inicio, subscriptions.fecha_vencimiento AS subscriptions_fecha_vencimiento, subscriptions.notas AS subscriptions_notas, subscriptions.created_at AS subscriptions_created_at, subscriptions.updated_at AS subscriptions_updated_at, subscription_plans_1.id AS subscription_plans_1_id, subscription_plans_1.codigo AS subscription_plans_1_codigo, subscription_plans_1.nombre AS subscription_plans_1_nombre, subscription_plans_1.descripcion AS subscription_plans_1_descripcion, subscription_plans_1.max_sucursales AS subscription_plans_1_max_sucursales, subscription_plans_1.permite_reportes_ia AS subscription_plans_1_permite_reportes_ia, subscription_plans_1.permite_offline AS subscription_plans_1_permite_offline, subscription_plans_1.precio_mensual_bob AS subscription_plans_1_precio_mensual_bob, subscription_plans_1.activo AS subscription_plans_1_activo, subscription_plans_1.catalog_managed AS subscription_plans_1_catalog_managed, subscription_plans_1.created_at AS subscription_plans_1_created_at, subscription_plans_1.updated_at AS subscription_plans_1_updated_at 
+E   FROM subscriptions LEFT OUTER JOIN subscription_plans AS subscription_plans_1 ON subscription_plans_1.id = subscriptions.plan_id 
+E   WHERE %(param_1)s::UUID = subscriptions.tenant_id]
+E   [parameters: {'param_1': UUID('e0e1cc99-2b9e-4894-ac1a-94dfd4b9457c')}]
+E   (Background on this error at: https://sqlalche.me/e/20/f405)
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+app\main.py:62
+  D:\SI2_Proyecto\Si2_Proyecto\backend\app\main.py:62: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+.venv\Lib\site-packages\fastapi\applications.py:4681
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\applications.py:4681: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)  # ty: ignore[deprecated]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_saas_plan_catalog.py::test_explicit_upgrade_is_repeatable_without_contract_edits
+1 failed, 387 passed, 3 warnings in 499.62s (0:08:19)

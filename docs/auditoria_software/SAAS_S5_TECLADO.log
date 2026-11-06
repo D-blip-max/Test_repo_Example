@@ -1,0 +1,143 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+ExpectError: expect(locator).toBeFocused() failed
+
+Locator: locator('#platform-content')
+Expected: focused
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeFocused" locator('#platform-content') with timeout 5000ms
+  - waiting for locator('#platform-content')
+    - waiting for "http://127.0.0.1:54215/" navigation to finish...
+    - navigated to "http://127.0.0.1:54215/#platform-content"
+
+    at captureRawStack (D:\SI2_Proyecto\Si2_Proyecto\web\node_modules\playwright-core\lib\coreBundle.js:9282:17)
+    at callMatcherAsStep (D:\SI2_Proyecto\Si2_Proyecto\web\node_modules\playwright\lib\matchers\expect.js:13316:57)
+    at Object.toBeFocused (D:\SI2_Proyecto\Si2_Proyecto\web\node_modules\playwright\lib\matchers\expect.js:13308:23)
+    at D:\SI2_Proyecto\Si2_Proyecto\web\[eval1]:7:162 {
+  matcherResult: {
+    message: 'expect(locator).toBeFocused() failed\n' +
+      '\n' +
+      "Locator: locator('#platform-content')\n" +
+      'Expected: focused\n' +
+      'Timeout: 5000ms\n' +
+      'Error: element(s) not found\n' +
+      '\n' +
+      'Call log:\n' +
+      `  - Expect "toBeFocused" locator('#platform-content') with timeout 5000ms\n` +
+      "  - waiting for locator('#platform-content')\n" +
+      '    - waiting for "http://127.0.0.1:54215/" navigation to finish...\n' +
+      '    - navigated to "http://127.0.0.1:54215/#platform-content"\n',
+    pass: false,
+    actual: undefined,
+    name: 'toBeFocused',
+    expected: 'focused',
+    log: [
+      `  - Expect "toBeFocused" locator('#platform-content') with timeout 5000ms`,
+      "  - waiting for locator('#platform-content')",
+      '    - waiting for "http://127.0.0.1:54215/" navigation to finish...',
+      '    - navigated to "http://127.0.0.1:54215/#platform-content"'
+    ],
+    timeout: 5000,
+    ariaSnapshot: '- banner:\n' +
+      '  - text:  FICTTSTORE Cloud Retail SaaS\n' +
+      '  - navigation:\n' +
+      '    - link "Características":\n' +
+      '      - /url: javascript:void(0)\n' +
+      '    - link "Empresas":\n' +
+      '      - /url: javascript:void(0)\n' +
+      '    - link "Planes y Precios":\n' +
+      '      - /url: javascript:void(0)\n' +
+      '  - button " SuperAdmin SaaS"\n' +
+      '  - button " Registrar Empresa"\n' +
+      '- text: PLATAFORMA SAAS MULTI-TENANT Solución Universal de Comercio Retail y Moda\n' +
+      '- heading "Gestión omnicanal inteligente para empresas de retail" [level=1]\n' +
+      '- paragraph: Infraestructura en la nube con aislamiento estricto de datos por empresa, operación continua fuera de línea (Offline-First), inteligencia artificial predictiva y facturación electrónica.\n' +
+      '- button " Directorio de Empresas"\n' +
+      '- button " Comenzar Prueba Gratis"\n' +
+      '- text:  Multi-Tenant Real Bases de datos aisladas por empresa  Modo Offline Local Punto de venta resiliente con SQLite  Inteligencia Artificial Pronóstico de demanda y reportes por voz  Seguridad y Auditoría Bitácora confidencial con llave de desarrollo PORTAL CORPORATIVO\n' +
+      '- heading "Directorio de Organizaciones Activas" [level=2]\n' +
+      '- paragraph: Selecciona tu empresa para ingresar a tu entorno de trabajo privado. Cada comercio dispone de su propio catálogo, inventario, sucursales y personal asignado.\n' +
+      '- text: \n' +
+      '- textbox "Buscar por nombre de empresa, eslogan o subdominio..."\n' +
+      '- text: FA Referencia QA\n' +
+      '- heading "Fashion QA Norte" [level=3]\n' +
+      '- paragraph: Fashion QA Norte\n' +
+      '- text:  qa-a.ficttstore.app Ingresar a Fashion QA Norte  ARQUITECTURA DE SOFTWARE\n' +
+      '- heading "Capacidades del Sistema Universal" [level=2]\n' +
+      '- paragraph: Diseñado bajo los estándares de Sistemas de Información 2 para adaptarse a cualquier modelo de comercio minorista.\n' +
+      '- text: \n' +
+      '- heading "Punto de Venta y Facturación" [level=3]\n' +
+      '- paragraph: Registro ágil de transacciones, soporte multi-moneda (Bs. y USD), cobro con efectivo, QR y pasarela PayPal integrada.\n' +
+      '- text: \n' +
+      '- heading "Gestión Multi-Sucursal" [level=3]\n' +
+      '- paragraph: Control centralizado de inventario entre depósitos y tiendas físicas, con kardex y transferencias automáticas.\n' +
+      '- text: \n' +
+      '- heading "Asistente IA Generativa" [level=3]\n' +
+      '- paragraph: Recomendaciones personalizadas basadas en el historial del cliente, predicción de ventas y reportes ejecutivos por voz.\n' +
+      '- text: \n' +
+      '- heading "Contingencia Offline-First" [level=3]\n' +
+      '- paragraph: Operación continua sin internet gracias al almacenamiento local en SQLite e IndexedDB, con sincronización automática en lotes.\n' +
+      '- text: \n' +
+      '- heading "Constructor de Reportes" [level=3]\n' +
+      '- paragraph: Diseñador multi-columna a medida con filtros dinámicos y exportación nativa a formatos Excel (.xlsx), PDF e HTML.\n' +
+      '- text: \n' +
+      '- heading "Bitácora Confidencial y Respaldos" [level=3]\n' +
+      '- paragraph: Registro de auditoría protegido con llave única del desarrollador y exportación completa de backups con firma SHA-256.\n' +
+      '- text: MODELO SAAS EN LA NUBE\n' +
+      '- heading "Planes de Suscripción y Tarifas" [level=2]\n' +
+      '- paragraph: Modalidades de contratación por suscripción mensual orientadas al tamaño y crecimiento de cada empresa cliente.\n' +
+      '- paragraph: El alta de empresas nuevas está temporalmente deshabilitada. Las empresas existentes pueden solicitar condiciones desde Mi suscripción; requieren aceptación y aprobación manual.\n' +
+      '- article:\n' +
+      '  - heading "Plan QA_S5_1793967807490" [level=3]\n' +
+      '  - paragraph: Revisión 1\n' +
+      '  - text: Bs. 150.00 / mes\n' +
+      '  - paragraph\n' +
+      '  - list:\n' +
+      '    - listitem: 2 sucursales activas\n' +
+      '    - listitem: "Reportes IA: Incluidos"\n' +
+      '    - listitem: "Analítica avanzada: No incluida"\n' +
+      '    - listitem: "Operaciones offline: No incluidas"\n' +
+      '  - paragraph: La oferta no modifica los períodos ya contratados. El precio se confirma en la cotización antes de aceptar.\n' +
+      '  - link "Consultar en mi empresa":\n' +
+      '    - /url: /empresa/suscripcion\n' +
+      '- article:\n' +
+      '  - heading "Plan QA_S5_1793967940496" [level=3]\n' +
+      '  - paragraph: Revisión 1\n' +
+      '  - text: Bs. 150.00 / mes\n' +
+      '  - paragraph\n' +
+      '  - list:\n' +
+      '    - listitem: 2 sucursales activas\n' +
+      '    - listitem: "Reportes IA: Incluidos"\n' +
+      '    - listitem: "Analítica avanzada: No incluida"\n' +
+      '    - listitem: "Operaciones offline: No incluidas"\n' +
+      '  - paragraph: La oferta no modifica los períodos ya contratados. El precio se confirma en la cotización antes de aceptar.\n' +
+      '  - link "Consultar en mi empresa":\n' +
+      '    - /url: /empresa/suscripcion\n' +
+      '- article:\n' +
+      '  - heading "Referencia QA" [level=3]\n' +
+      '  - paragraph: Revisión 1\n' +
+      '  - text: Bs. 100.00 / mes\n' +
+      '  - paragraph\n' +
+      '  - list:\n' +
+      '    - listitem: 4 sucursales activas\n' +
+      '    - listitem: "Reportes IA: Incluidos"\n' +
+      '    - listitem: "Analítica avanzada: Incluida"\n' +
+      '    - listitem: "Operaciones offline: Incluidas"\n' +
+      '  - paragraph: La oferta no modifica los períodos ya contratados. El precio se confirma en la cotización antes de aceptar.\n' +
+      '  - link "Consultar en mi empresa":\n' +
+      '    - /url: /empresa/suscripcion\n' +
+      '- contentinfo:\n' +
+      '  - text:  FICTT STORE CLOUD\n' +
+      '  - paragraph: Plataforma SaaS Omnicanal de Retail — Desarrollada bajo los lineamientos de Sistemas de Información 2 (SI2).\n' +
+      '  - button " Consola SuperAdmin SaaS"\n' +
+      '  - button " Registro de Nuevas Empresas"\n' +
+      '  - paragraph: © 2026 FICTT Store Inc. Solución Universal de Información Empresarial.'
+  }
+}
+
+Node.js v26.7.0

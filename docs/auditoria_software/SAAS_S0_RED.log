@@ -1,0 +1,270 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFF                                              [100%]
+================================== FAILURES ===================================
+_ test_platform_operator_denied_business_even_with_admin_permissions[/users] __
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/users', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/roles] __
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/roles', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/permissions] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/permissions', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/productos] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/productos', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/categorias] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/categorias', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/sucursales] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/sucursales', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/proveedores] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/proveedores', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/temporadas] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/temporadas', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/inventario/movimientos] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/inventario/movimientos', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/inventario/alertas] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/inventario/alertas', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/reservas] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/reservas', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/reservas/mis-reservas] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/reservas/mis-reservas', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/ventas] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/ventas', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/ventas/mis-compras] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/ventas/mis-compras', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/ventas/reportes/top-productos] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/ventas/reportes/top-productos', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/wallet/me] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/wallet/me', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/wallet/history] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/wallet/history', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/wallet/admin/list] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/wallet/admin/list', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/notifications] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/notifications', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/favorites] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/favorites', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/recommendations/trending] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/recommendations/trending', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/backups/stats] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/backups/stats', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+_ test_platform_operator_denied_business_even_with_admin_permissions[/backups/download] _
+tests\test_saas_platform_boundary.py:15: in test_platform_operator_denied_business_even_with_admin_permissions
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/backups/download', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+___________________ test_platform_profile_is_identity_only ____________________
+tests\test_saas_platform_boundary.py:22: in test_platform_profile_is_identity_only
+    assert data.get('access_scope') == 'PLATFORM'
+E   AssertionError: assert None == 'PLATFORM'
+E    +  where None = <built-in method get of dict object at 0x000001E0B72D6B40>('access_scope')
+E    +    where <built-in method get of dict object at 0x000001E0B72D6B40> = {'email': 'operator@saas-test.example.com', 'full_name': 'SaaS operator', 'id': '5604724e-790c-4c23-b157-f2717ffd7e6e', 'is_active': True, ...}.get
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+________ test_revoked_operator_does_not_fall_back_to_commercial_admin _________
+tests\test_saas_platform_boundary.py:31: in test_revoked_operator_does_not_fall_back_to_commercial_admin
+    assert response.status_code == 403, (path, response.status_code)
+E   AssertionError: ('/users', 200)
+E   assert 200 == 403
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+__________________ test_company_admin_cannot_enter_platform ___________________
+tests\test_saas_platform_boundary.py:36: in test_company_admin_cannot_enter_platform
+    assert response.status_code == 403
+E   assert 404 == 403
+E    +  where 404 = <Response [404 Not Found]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+______________ test_operator_company_is_not_in_public_directory _______________
+tests\test_saas_platform_boundary.py:42: in test_operator_company_is_not_in_public_directory
+    assert str(saas_actors['operator_company'].id) not in {r['id'] for r in response.json()}
+E   AssertionError: assert 'b48f714b-834d-4d24-9d39-7585a289d696' not in {'0eff7da2-66ae-4e0f-afa2-6d02711d6eea', '5a3bd2f3-6a99-4935-8bd3-1d305874693a', 'b48f714b-834d-4d24-9d39-7585a289d696'}
+E    +  where 'b48f714b-834d-4d24-9d39-7585a289d696' = str(UUID('b48f714b-834d-4d24-9d39-7585a289d696'))
+E    +    where UUID('b48f714b-834d-4d24-9d39-7585a289d696') = <app.models.tenant.Tenant object at 0x000001E0B728BE50>.id
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+app\main.py:62
+  D:\SI2_Proyecto\Si2_Proyecto\backend\app\main.py:62: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+.venv\Lib\site-packages\fastapi\applications.py:4681
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\applications.py:4681: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)  # ty: ignore[deprecated]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/users]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/roles]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/permissions]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/productos]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/categorias]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/sucursales]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/proveedores]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/temporadas]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/inventario/movimientos]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/inventario/alertas]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/reservas]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/reservas/mis-reservas]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/ventas]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/ventas/mis-compras]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/ventas/reportes/top-productos]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/wallet/me]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/wallet/history]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/wallet/admin/list]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/notifications]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/favorites]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/recommendations/trending]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/backups/stats]
+FAILED tests/test_saas_platform_boundary.py::test_platform_operator_denied_business_even_with_admin_permissions[/backups/download]
+FAILED tests/test_saas_platform_boundary.py::test_platform_profile_is_identity_only
+FAILED tests/test_saas_platform_boundary.py::test_revoked_operator_does_not_fall_back_to_commercial_admin
+FAILED tests/test_saas_platform_boundary.py::test_company_admin_cannot_enter_platform
+FAILED tests/test_saas_platform_boundary.py::test_operator_company_is_not_in_public_directory
+27 failed, 3 warnings in 68.84s (0:01:08)

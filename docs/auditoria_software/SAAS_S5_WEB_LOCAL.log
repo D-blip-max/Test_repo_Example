@@ -1,0 +1,243 @@
+> Building...
+√ Building...
+Initial chunk files | Names                         |  Raw size
+main.js             | main                          | 241.03 kB | 
+chunk-YLB2KMS6.js   | -                             |  22.67 kB | 
+styles.css          | styles                        |  16.07 kB | 
+chunk-G2WQ6DDB.js   | -                             |   7.88 kB | 
+chunk-RVDMOGPL.js   | -                             |   6.36 kB | 
+chunk-MBKQLGBP.js   | -                             |   5.54 kB | 
+chunk-BYZMZQA6.js   | -                             |   4.11 kB | 
+chunk-I2SKGNOW.js   | -                             |   2.16 kB | 
+chunk-GOMI4DH3.js   | -                             |   1.37 kB | 
+chunk-G5B2GKIG.js   | -                             | 692 bytes | 
+chunk-FPIZOZ5C.js   | -                             | 190 bytes | 
+
+                    | Initial total                 | 308.07 kB
+
+Lazy chunk files    | Names                         |  Raw size
+chunk-4ITIUH6M.js   | analytics-dashboard-component | 160.71 kB | 
+chunk-7SQS37SS.js   | product-exchange-component    | 120.58 kB | 
+chunk-7MNEYKRO.js   | dashboard-component           | 114.59 kB | 
+chunk-MPGLAYAO.js   | pos-component                 |  99.94 kB | 
+chunk-FYQD2KKN.js   | user-list-component           |  93.46 kB | 
+chunk-APIQT2JN.js   | voice-reports-component       |  89.06 kB | 
+chunk-ONXJZNIW.js   | saas-landing-component        |  81.29 kB | 
+chunk-DYQO6VO4.js   | inventory-stock-component     |  71.77 kB | 
+chunk-DW3RPL2L.js   | sale-list-component           |  64.66 kB | 
+chunk-VEBQOIFS.js   | product-form-component        |  59.34 kB | 
+chunk-SKSCHBNE.js   | profile-component             |  59.20 kB | 
+chunk-62W6HOG3.js   | reservation-list-component    |  59.07 kB | 
+chunk-POED3GHC.js   | subscription-detail-component |  56.72 kB | 
+chunk-IPIVRH4L.js   | bitacora-component            |  55.52 kB | 
+chunk-JLFDDRCT.js   | wallet-admin-component        |  52.05 kB | 
+...and 36 more lazy chunks files. Use "--verbose" to show all the files.
+
+Application bundle generation complete. [32.979 seconds] - 2026-11-06T12:20:14.180Z
+
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+  ➜  Local:   http://127.0.0.1:54215/
+> Changes detected. Rebuilding...
+√ Changes detected. Rebuilding...
+Initial chunk files | Names                         |  Raw size
+main.js             | main                          | 240.99 kB | 
+chunk-JURIZKMS.js   | -                             |  22.63 kB | 
+chunk-PH733TMT.js   | -                             |   7.88 kB | 
+chunk-PEJHH3MK.js   | -                             |   6.36 kB | 
+chunk-QDVX6E67.js   | -                             |   5.50 kB | 
+chunk-7FO6CWKU.js   | -                             |   2.16 kB | 
+chunk-SO7B5BSJ.js   | -                             |   1.51 kB | 
+
+Lazy chunk files    | Names                         |  Raw size
+chunk-PPJWHK4J.js   | analytics-dashboard-component | 160.67 kB | 
+chunk-ONC57HUA.js   | product-exchange-component    | 120.54 kB | 
+chunk-CZEMU226.js   | dashboard-component           | 114.56 kB | 
+chunk-EST5WL6P.js   | pos-component                 |  99.91 kB | 
+chunk-MWTETRGE.js   | user-list-component           |  93.43 kB | 
+chunk-JBEFJJOB.js   | voice-reports-component       |  89.03 kB | 
+chunk-ZFV35JZE.js   | saas-landing-component        |  81.26 kB | 
+chunk-K2BF76R7.js   | inventory-stock-component     |  71.74 kB | 
+chunk-6YIH2BBF.js   | sale-list-component           |  64.63 kB | 
+chunk-P6XW6XVG.js   | product-form-component        |  59.31 kB | 
+chunk-B2T5LQSR.js   | profile-component             |  59.17 kB | 
+chunk-7FPBVZT2.js   | reservation-list-component    |  59.04 kB | 
+chunk-VM3DSYPV.js   | subscription-detail-component |  56.69 kB | 
+chunk-M6JYLIKK.js   | bitacora-component            |  55.49 kB | 
+chunk-H3H4TARD.js   | wallet-admin-component        |  52.01 kB | 
+...and 35 more lazy chunks files. Use "--verbose" to show all the files.
+
+Application bundle generation complete. [32.579 seconds] - 2026-11-06T12:24:30.901Z
+
+Page reload sent to client(s).
+> Changes detected. Rebuilding...
+√ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 241.14 kB | 
+
+Application bundle generation complete. [4.337 seconds] - 2026-11-06T12:26:56.761Z
+
+Page reload sent to client(s).
+> Changes detected. Rebuilding...
+√ Changes detected. Rebuilding...
+Application bundle generation failed. [5.290 seconds] - 2026-11-06T12:32:47.468Z
+
+X [ERROR] TS2339: Property 'planError' does not exist on type 'SaaSLandingComponent'. [plugin angular-compiler]
+
+    src/app/features/landing/saas-landing.component.html:260:10:
+      260 │       @if(planError()){<p role="alert">No se pudieron cargar las ...
+          ╵           ~~~~~~~~~
+
+  Error occurs in the template of component SaaSLandingComponent.
+
+    src/app/features/landing/saas-landing.component.ts:13:15:
+      13 │   templateUrl: './saas-landing.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'version_id' does not exist on type 'SubscriptionPlan'. [plugin angular-compiler]
+
+    src/app/features/landing/saas-landing.component.html:262:40:
+      262 │ ...lan of plans();track plan.version_id){<article class="pricing-...
+          ╵                              ~~~~~~~~~~
+
+  Error occurs in the template of component SaaSLandingComponent.
+
+    src/app/features/landing/saas-landing.component.ts:13:15:
+      13 │   templateUrl: './saas-landing.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'revision' does not exist on type 'SubscriptionPlan'. [plugin angular-compiler]
+
+    src/app/features/landing/saas-landing.component.html:263:107:
+      263 │ ...tier-name">{{plan.nombre}}</h3><p>Revisión {{plan.revision}}</p>
+          ╵                                                     ~~~~~~~~
+
+  Error occurs in the template of component SaaSLandingComponent.
+
+    src/app/features/landing/saas-landing.component.ts:13:15:
+      13 │   templateUrl: './saas-landing.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'features' does not exist on type 'SubscriptionPlan'. [plugin angular-compiler]
+
+    src/app/features/landing/saas-landing.component.html:265:110:
+      265 │ ...li><li>Reportes IA: {{plan.features.reportes_ia?'Incluidos':'N...
+          ╵                               ~~~~~~~~
+
+  Error occurs in the template of component SaaSLandingComponent.
+
+    src/app/features/landing/saas-landing.component.ts:13:15:
+      13 │   templateUrl: './saas-landing.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'features' does not exist on type 'SubscriptionPlan'. [plugin angular-compiler]
+
+    src/app/features/landing/saas-landing.component.html:265:195:
+      265 │ ...Analítica avanzada: {{plan.features.analitica_avanzada?'Inclu...
+          ╵                              ~~~~~~~~
+
+  Error occurs in the template of component SaaSLandingComponent.
+
+    src/app/features/landing/saas-landing.component.ts:13:15:
+      13 │   templateUrl: './saas-landing.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'features' does not exist on type 'SubscriptionPlan'. [plugin angular-compiler]
+
+    src/app/features/landing/saas-landing.component.html:265:286:
+      265 │ ...Operaciones offline: {{plan.features.offline?'Incluidas':'No i...
+          ╵                               ~~~~~~~~
+
+  Error occurs in the template of component SaaSLandingComponent.
+
+    src/app/features/landing/saas-landing.component.ts:13:15:
+      13 │   templateUrl: './saas-landing.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'planError' does not exist on type 'SaaSLandingComponent'. [plugin angular-compiler]
+
+    src/app/features/landing/saas-landing.component.html:268:31:
+      268 │ ...    </article>}@empty{@if(!planError()){<p>No hay ofertas publ...
+          ╵                               ~~~~~~~~~
+
+  Error occurs in the template of component SaaSLandingComponent.
+
+    src/app/features/landing/saas-landing.component.ts:13:15:
+      13 │   templateUrl: './saas-landing.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+> Changes detected. Rebuilding...
+√ Changes detected. Rebuilding...
+Initial chunk files | Names                         |  Raw size
+main.js             | main                          | 241.18 kB | 
+chunk-YLB2KMS6.js   | -                             |  22.67 kB | 
+styles.css          | styles                        |  16.07 kB | 
+chunk-G2WQ6DDB.js   | -                             |   7.88 kB | 
+chunk-BXEZFX7X.js   | -                             |   6.36 kB | 
+chunk-PR4ZQGI4.js   | -                             |   5.38 kB | 
+chunk-BYZMZQA6.js   | -                             |   4.11 kB | 
+chunk-I2SKGNOW.js   | -                             |   2.16 kB | 
+chunk-GOMI4DH3.js   | -                             |   1.37 kB | 
+chunk-G5B2GKIG.js   | -                             | 692 bytes | 
+chunk-FPIZOZ5C.js   | -                             | 190 bytes | 
+
+                    | Initial total                 | 308.06 kB
+
+Lazy chunk files    | Names                         |  Raw size
+chunk-4ITIUH6M.js   | analytics-dashboard-component | 160.71 kB | 
+chunk-2GVGLAZ7.js   | product-exchange-component    | 120.58 kB | 
+chunk-7MNEYKRO.js   | dashboard-component           | 114.59 kB | 
+chunk-UR3CYUI3.js   | pos-component                 |  99.94 kB | 
+chunk-FYQD2KKN.js   | user-list-component           |  93.46 kB | 
+chunk-APIQT2JN.js   | voice-reports-component       |  89.06 kB | 
+chunk-WVLA7WBG.js   | saas-landing-component        |  78.86 kB | 
+chunk-DYQO6VO4.js   | inventory-stock-component     |  71.77 kB | 
+chunk-DW3RPL2L.js   | sale-list-component           |  64.66 kB | 
+chunk-VEBQOIFS.js   | product-form-component        |  59.34 kB | 
+chunk-SKSCHBNE.js   | profile-component             |  59.20 kB | 
+chunk-62W6HOG3.js   | reservation-list-component    |  59.07 kB | 
+chunk-BZCCSG6P.js   | subscription-detail-component |  56.72 kB | 
+chunk-IPIVRH4L.js   | bitacora-component            |  55.52 kB | 
+chunk-JLFDDRCT.js   | wallet-admin-component        |  52.05 kB | 
+...and 36 more lazy chunks files. Use "--verbose" to show all the files.
+
+Application bundle generation complete. [7.424 seconds] - 2026-11-06T12:32:55.328Z
+
+Page reload sent to client(s).
+> Changes detected. Rebuilding...
+√ Changes detected. Rebuilding...
+Initial chunk files | Names                           |  Raw size
+main.js             | main                            | 241.73 kB | 
+chunk-O7635EPF.js   | -                               |  22.67 kB | 
+chunk-A2W5LG7Y.js   | -                               |   8.07 kB | 
+chunk-NO6E7B3A.js   | -                               |   6.36 kB | 
+chunk-D6JWOPOU.js   | -                               |   5.38 kB | 
+
+Lazy chunk files    | Names                           |  Raw size
+chunk-SUTPPDJE.js   | product-exchange-component      | 120.58 kB | 
+chunk-YZ6WEYQG.js   | dashboard-component             | 114.59 kB | 
+chunk-4J2YYOEH.js   | pos-component                   |  99.94 kB | 
+chunk-7QXK64NL.js   | user-list-component             |  93.46 kB | 
+chunk-3TSXL4FE.js   | saas-landing-component          |  78.86 kB | 
+chunk-TF6IR2BF.js   | inventory-stock-component       |  71.77 kB | 
+chunk-RFCOVZKE.js   | sale-list-component             |  64.66 kB | 
+chunk-MPK3ERBK.js   | profile-component               |  59.20 kB | 
+chunk-IM5CF2QU.js   | reservation-list-component      |  59.07 kB | 
+chunk-WZ4VIF3H.js   | subscription-detail-component   |  56.72 kB | 
+chunk-JF6CFVQ5.js   | custom-report-builder-component |  51.62 kB | 
+chunk-FVPR5BRF.js   | product-list-component          |  48.52 kB | 
+chunk-5PH5E3LP.js   | plans-component                 |  46.97 kB | 
+chunk-OQFMSLXA.js   | backup-restore-component        |  46.75 kB | 
+chunk-OJXI6DA3.js   | role-list-component             |  42.79 kB | 
+...and 17 more lazy chunks files. Use "--verbose" to show all the files.
+
+Application bundle generation complete. [4.422 seconds] - 2026-11-06T12:44:32.680Z
+
+Page reload sent to client(s).

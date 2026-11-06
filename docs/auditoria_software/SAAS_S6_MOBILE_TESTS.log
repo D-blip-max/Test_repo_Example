@@ -1,0 +1,344 @@
+00:00 +0: loading D:/SI2_Proyecto/Si2_Proyecto/mobile/test/cart_journey_widget_test.dart
+00:00 +0: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/cart_journey_widget_test.dart: narrow cart at scale 1.0: reserve taps send once and failure retains cart
+00:05 +1: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/cart_journey_widget_test.dart: narrow cart at scale 1.0: reserve taps send once and failure retains cart
+00:05 +1: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/catalog_journey_widget_test.dart: online empty catalog preserves authority and layout at text scale 2.0
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:05 +2: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/catalog_journey_widget_test.dart: online empty catalog preserves authority and layout at text scale 2.0
+00:05 +2: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/cart_journey_widget_test.dart: narrow cart at scale 2.0: reserve taps send once and failure retains cart
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:05 +3: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/cart_journey_widget_test.dart: narrow cart at scale 2.0: reserve taps send once and failure retains cart
+00:06 +4: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/cart_journey_widget_test.dart: coupon Decimal response applies and cart mutation invalidates discount
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:11 +5: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/channel_contracts_test.dart: cart uses the offer plus variant surcharge quoted by the server
+00:11 +6: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/channel_contracts_test.dart: cart is cleared when account or company changes
+00:11 +7: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/channel_contracts_test.dart: cart cannot accept negative or mismatched variant quantities
+00:11 +8: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/channel_contracts_test.dart: purchase history does not disguise server failure as an empty history
+00:11 +9: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/channel_contracts_test.dart: reservations do not disguise server failure as an empty history
+00:11 +10: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/channel_contracts_test.dart: availability does not disguise server failure as out of stock
+00:11 +11: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/channel_contracts_test.dart: category errors remain distinguishable from an empty category list
+00:11 +12: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/channel_contracts_test.dart: season errors remain distinguishable from an empty season list
+00:12 +13: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/favorites_journey_test.dart: offline favorite addition survives reconnection and reaches server
+00:13 +14: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/favorites_journey_test.dart: failed remote write stays pending instead of being erased by the remote snapshot
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:13 +15: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/favorites_journey_test.dart: offline favorite removal is not resurrected by old server state
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:14 +16: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/notification_scope_test.dart: notifications screen shows retry on failure instead of empty inbox
+00:14 +16: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/favorites_journey_test.dart: an old favorite acknowledgement cannot erase a newer desired state
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:14 +17: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/notification_scope_test.dart: notifications screen shows retry on failure instead of empty inbox
+00:14 +17: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/favorites_journey_test.dart: favorite mutation and cached state roll back together if SQLite rejects the write
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:14 +18: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/notification_scope_test.dart: notifications screen shows retry on failure instead of empty inbox
+00:16 +19: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/notification_scope_test.dart: failed mark all action never announces success
+00:17 +20: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: wallet order and provisional debit roll back together on SQLite error
+00:17 +21: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: wallet order and provisional debit roll back together on SQLite error
+00:17 +22: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: wallet order and provisional debit roll back together on SQLite error
+00:17 +23: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: concurrent taps cannot spend the same available balance
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:18 +24: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: server refresh preserves durable pending total and ignores old nonce
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:18 +25: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: partial wallet response cannot clear queue or change confirmed balance
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:18 +26: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: wallet result and authoritative snapshot apply together
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:18 +27: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: unvalidated legacy cache cannot fund a new payment
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:18 +28: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: general queue rejects changed UUID and incomplete acknowledgement
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:18 +29: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: transient response stays pending and fixed handle cannot touch another owner
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:18 +30: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: explicit retry retains rejected parent and one successor
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:18 +31: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: explicit recovery imports only verified owner and leaves source unchanged
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:19 +32: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_integrity_test.dart: available cents are not rejected by floating point subtraction
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:19 +33: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_sync_service_test.dart: mutex is acquired before asynchronous pending read
+00:20 +34: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_sync_service_test.dart: late response cannot acknowledge another account queue
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:20 +35: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_sync_service_test.dart: 401 keeps pending and pauses repeated automatic attempts
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:20 +36: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_sync_service_test.dart: review-required response preserves pending and pauses automatic attempts
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:20 +37: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/offline_sync_service_test.dart: partial response preserves pending and reports an actionable error
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:21 +38: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase5_migration_test.dart: SQLite v5 upgrade preserves validated balance, pending orders and catalog
+00:23 +39: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase6_chatbot_test.dart: chat clears identity history and ignores old reply after account change
+00:23 +40: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase6_chatbot_test.dart: unavailable AI does not invent funds or delivery tariffs
+00:24 +41: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase6_fitting_test.dart: size guide rejects NaN instead of calculating a fictitious size
+00:25 +42: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase6_fitting_test.dart: size guide rejects NaN instead of calculating a fictitious size
+00:27 +43: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase6_fitting_test.dart: size guide rejects NaN instead of calculating a fictitious size
+00:28 +44: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase7_accessibility_test.dart: price, product and purchase stay usable at width 320.0 with 200% text
+00:30 +45: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase7_accessibility_test.dart: price, product and purchase stay usable at width 375.0 with 200% text
+00:30 +46: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase7_accessibility_test.dart: price, product and purchase stay usable at width 768.0 with 200% text
+00:30 +47: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase7_detail_test.dart: detail at 320px, 200% text, dark=false keeps price and actions visible
+00:32 +48: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase7_detail_test.dart: detail at 320px, 200% text, dark=false keeps price and actions visible
+00:33 +48: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/platform_scope_test.dart: late login reply after logout cannot reactivate or store another session
+Error leyendo refresh token: MissingPluginException(No implementation found for method read on channel plugins.it_nomads.com/flutter_secure_storage)
+00:33 +49: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase7_detail_test.dart: detail at 320px, 200% text, dark=false keeps price and actions visible
+00:33 +50: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase7_detail_test.dart: detail at 320px, 200% text, dark=false keeps price and actions visible
+00:33 +51: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase7_detail_test.dart: detail at 320px, 200% text, dark=false keeps price and actions visible
+00:33 +52: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase7_detail_test.dart: detail at 320px, 200% text, dark=false keeps price and actions visible
+00:33 +53: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/phase7_detail_test.dart: detail at 320px, 200% text, dark=true keeps price and actions visible
+00:35 +54: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/saas_s4_authorization_test.dart: late permit response cannot be cached after identity change
+00:35 +55: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/saas_s4_migration_test.dart: v6 upgrade preserves pending work and consumes scoped permits once
+00:37 +56: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/session_requests_test.dart: optional public catalog requests carry the active identity
+00:37 +57: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/session_requests_test.dart: a pending queue is never sent using the next account token
+00:37 +58: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/session_requests_test.dart: responses from the previous identity are discarded
+00:37 +59: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/session_requests_test.dart: GET is not sent with the next account token
+00:37 +60: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/session_requests_test.dart: PUT is not sent with the next account token
+00:37 +61: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/session_requests_test.dart: PATCH is not sent with the next account token
+00:37 +62: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/session_requests_test.dart: DELETE is not sent with the next account token
+00:38 +63: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/startup_widget_test.dart: initial app frame survives unavailable native notifications
+00:40 +64: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/startup_widget_test.dart: initial app frame survives unavailable native notifications
+00:40 +65: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/startup_widget_test.dart: initial app frame survives unavailable native notifications
+00:40 +65: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/tenant_storage_test.dart: wallet v3 upgrade preserves pending orders and adds coupon and held balance
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:40 +66: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/startup_widget_test.dart: initial app frame survives unavailable native notifications
+No se pudieron iniciar las notificaciones: LateInitializationError: Field '_instance@784271368' has not been initialized.
+00:42 +67: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_confirmation_test.dart: wallet checkout reports CONFIRMADA according to central confirmation
+00:43 +68: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: sync panel counts a durable wallet order, not only cash and reservations
+00:43 +68: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_confirmation_test.dart: wallet checkout reports CONFLICTO according to central confirmation
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:43 +69: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: sync panel counts a durable wallet order, not only cash and reservations
+00:43 +69: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_confirmation_test.dart: wallet checkout reports TIMEOUT according to central confirmation
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:43 +70: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: sync panel counts a durable wallet order, not only cash and reservations
+00:43 +70: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_confirmation_test.dart: wallet checkout reports HELD according to central confirmation
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:43 +71: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: sync panel counts a durable wallet order, not only cash and reservations
+00:43 +72: loading D:/SI2_Proyecto/Si2_Proyecto/mobile/test/widget_test.dart
+00:43 +72: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: sync panel button sends signed wallet order once and retains its receipt
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:44 +73: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: reconnection automatically confirms once and updates the combined counter
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:44 +74: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: 401 preserves the same wallet order for explicit retry instead of another purchase
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:44 +75: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: stock rejection remains visible and does not debit or get retried as a new order
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:44 +76: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: switching company hides the previous wallet order and never sends it
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:44 +77: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: offline screen counts wallet purchase and refreshes history after reconnection
+*** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+00:45 +78: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: offline screen counts wallet purchase and refreshes history after reconnection
+00:45 +79: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: offline screen counts wallet purchase and refreshes history after reconnection
+00:45 +80: D:/SI2_Proyecto/Si2_Proyecto/mobile/test/wallet_offline_orchestration_test.dart: offline screen counts wallet purchase and refreshes history after reconnection
+[OFFLINE SYNC FLUTTER] Red recuperada. Iniciando auto-sincronización...
+00:48 +81: All tests passed!

@@ -1,0 +1,9 @@
+warning: in the working copy of 'app/api/v1/auth.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/api/v1/users.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/models/subscription.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/models/subscription_plan.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/models/tenant.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/schemas/notification.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/services/audit_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/services/backup_recovery.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/test_phase8_backup.py', LF will be replaced by CRLF the next time Git touches it

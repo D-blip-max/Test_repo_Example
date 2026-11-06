@@ -1,0 +1,40 @@
+.....................................................................F.. [ 15%]
+........................................................................ [ 31%]
+........................................................................ [ 47%]
+........................................................................ [ 63%]
+........................................................................ [ 78%]
+........................................................................ [ 94%]
+.........................                                                [100%]
+================================== FAILURES ===================================
+_______ test_fresh_rebuilds_legacy_schema_seeds_twice_and_authenticates _______
+tests\test_demo_reset.py:33: in test_fresh_rebuilds_legacy_schema_seeds_twice_and_authenticates
+    assert len(result['checks'])==18
+E   AssertionError: assert 26 == 18
+E    +  where 26 = len({'sale_total_vs_details': 0, 'sale_subtotal': 0, 'detail_arithmetic': 0, 'sale_tax_and_cash': 0, ...})
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+app\main.py:62
+  D:\SI2_Proyecto\Si2_Proyecto\backend\app\main.py:62: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+.venv\Lib\site-packages\fastapi\applications.py:4681
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\applications.py:4681: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)  # ty: ignore[deprecated]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_demo_reset.py::test_fresh_rebuilds_legacy_schema_seeds_twice_and_authenticates
+1 failed, 456 passed, 3 warnings in 612.94s (0:10:12)

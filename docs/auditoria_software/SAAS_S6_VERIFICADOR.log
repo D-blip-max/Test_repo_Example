@@ -1,0 +1,1 @@
+{"read_only": true, "operator_grants_configured": true, "checks": {"operator_context": 0, "operator_commercial_permissions": 0, "commercial_contract_missing": 0, "contract_tenant_reference": 0, "request_tenant_reference": 0, "contract_overlap": 0, "legacy_price_claim": 0, "unknown_contract_features": 0, "configured_operator_invalid": 0}, "ok": true}

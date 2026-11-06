@@ -1,0 +1,190 @@
+
+> web-app@0.0.0 test
+> ng test --watch=false
+
+> Building...
+√ Building...
+Initial chunk files                                                                 | Names                                                                            |  Raw size
+spec-app-features-platform-platform-actions.js                                      | spec-app-features-platform-platform-actions                                      | 110.02 kB | 
+spec-app-features-sales-pos-pos.component.js                                        | spec-app-features-sales-pos-pos.component                                        | 101.01 kB | 
+spec-app-features-subscription-subscription-detail-subscription-detail.component.js | spec-app-features-subscription-subscription-detail-subscription-detail.component |  59.83 kB | 
+spec-app-features-products-product-list-product-list.component.js                   | spec-app-features-products-product-list-product-list.component                   |  50.22 kB | 
+spec-app-features-suppliers-supplier-list-supplier-list.component.js                | spec-app-features-suppliers-supplier-list-supplier-list.component                |  37.58 kB | 
+spec-app-features-reservations-reservation-form-reservation-form.component.js       | spec-app-features-reservations-reservation-form-reservation-form.component       |  32.67 kB | 
+styles.css                                                                          | styles                                                                           |  16.03 kB | 
+chunk-ZGO2HQ23.js                                                                   | -                                                                                |  14.25 kB | 
+spec-app-core-services-chatbot.service.js                                           | spec-app-core-services-chatbot.service                                           |  13.77 kB | 
+chunk-FSLTB6KA.js                                                                   | -                                                                                |   8.54 kB | 
+spec-app-core-directives-focus-dialog.directive.js                                  | spec-app-core-directives-focus-dialog.directive                                  |   6.38 kB | 
+chunk-GC3ROIVW.js                                                                   | -                                                                                |   5.38 kB | 
+chunk-BDDHHXNK.js                                                                   | -                                                                                |   5.35 kB | 
+chunk-JBWBLPNK.js                                                                   | -                                                                                |   5.19 kB | 
+spec-app-core-services-offline-integrity.js                                         | spec-app-core-services-offline-integrity                                         |   5.17 kB | 
+chunk-5S2FUCKF.js                                                                   | -                                                                                |   5.07 kB | 
+chunk-TJGYGUMT.js                                                                   | -                                                                                |   5.01 kB | 
+spec-app-core-services-payment-contracts.js                                         | spec-app-core-services-payment-contracts                                         |   4.91 kB | 
+spec-app-core-services-sync-queue.service.js                                        | spec-app-core-services-sync-queue.service                                        |   4.83 kB | 
+spec-app-core-guards-platform.guard.js                                              | spec-app-core-guards-platform.guard                                              |   4.68 kB | 
+chunk-FHRU2VNJ.js                                                                   | -                                                                                |   3.93 kB | 
+spec-app-core-services-saas-session.js                                              | spec-app-core-services-saas-session                                              |   3.73 kB | 
+chunk-JLIABKDS.js                                                                   | -                                                                                |   3.57 kB | 
+spec-app-core-guards-auth.guard.js                                                  | spec-app-core-guards-auth.guard                                                  |   3.51 kB | 
+chunk-IANAXHLV.js                                                                   | -                                                                                |   3.04 kB | 
+spec-app-core-services-offline-storage.service.js                                   | spec-app-core-services-offline-storage.service                                   |   2.81 kB | 
+spec-app-core-services-auth.service.js                                              | spec-app-core-services-auth.service                                              |   2.59 kB | 
+chunk-CA4D46CM.js                                                                   | -                                                                                |   2.36 kB | 
+chunk-YHJD5DJO.js                                                                   | -                                                                                |   2.35 kB | 
+spec-app-core-services-platform-storage-boundary.js                                 | spec-app-core-services-platform-storage-boundary                                 |   2.31 kB | 
+spec-app-core-services-tenant-theme.service.js                                      | spec-app-core-services-tenant-theme.service                                      |   2.01 kB | 
+chunk-E5KW4R5M.js                                                                   | -                                                                                |   1.82 kB | 
+chunk-V2RGDQO2.js                                                                   | -                                                                                |   1.80 kB | 
+spec-app-core-services-notification.service.js                                      | spec-app-core-services-notification.service                                      |   1.67 kB | 
+spec-app-core-interceptors-auth.interceptor.js                                      | spec-app-core-interceptors-auth.interceptor                                      |   1.57 kB | 
+spec-app-app.js                                                                     | spec-app-app                                                                     |   1.51 kB | 
+spec-app-core-utils-inventory-movement.js                                           | spec-app-core-utils-inventory-movement                                           |   1.23 kB | 
+init-testbed.js                                                                     | init-testbed                                                                     |   1.21 kB | 
+chunk-OEHTEMS5.js                                                                   | -                                                                                |   1.19 kB | 
+vitest-mock-patch.js                                                                | vitest-mock-patch                                                                | 974 bytes | 
+spec-app-core-utils-accessible-color.js                                             | spec-app-core-utils-accessible-color                                             | 887 bytes | 
+spec-app-core-utils-report-csv.js                                                   | spec-app-core-utils-report-csv                                                   | 767 bytes | 
+chunk-G5B2GKIG.js                                                                   | -                                                                                | 692 bytes | 
+chunk-FPIZOZ5C.js                                                                   | -                                                                                | 190 bytes | 
+
+                                                                                    | Initial total                                                                    | 543.60 kB
+
+Application bundle generation complete. [12.610 seconds] - 2026-11-06T12:46:05.635Z
+
+
+ RUN  v4.1.11 D:/SI2_Proyecto/Si2_Proyecto/web
+
+ ❯ |web-app| src/app/features/products/product-list/product-list.component.spec.ts (1 test | 1 failed) 255ms
+   × announces a catalog error and lets the user retry without losing the current filter 255ms
+ ❯ |web-app| src/app/core/services/offline-integrity.spec.ts (10 tests | 10 failed) 43ms
+     × does not overwrite confirmed content when the same UUID is saved again 7ms
+     × keeps every pending on partial response 12ms
+     × keeps every pending on duplicate response 4ms
+     × keeps every pending on unknown response 1ms
+     × keeps every pending on missing_receipt response 2ms
+     × keeps every pending on wrong_type response 2ms
+     × keeps transient failures pending while atomically confirming the rest 1ms
+     × a fixed owner handle survives account switches and a new storage instance 2ms
+     × imports verified rows once without replacing existing operations 7ms
+     × preserves rejected parent and creates only one linked successor 2ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |web-app| src/app/core/services/offline-integrity.spec.ts > Durable offline queue integrity > does not overwrite confirmed content when the same UUID is saved again
+ReferenceError: indexedDB is not defined
+ ❯ openDB node_modules/idb/build/index.js:164:21
+ ❯ _OfflineStorageService.initDB src/app/core/services/offline-storage.service.ts:39:12
+ ❯ _OfflineStorageService.saveOfflineOperation src/app/core/services/offline-storage.service.ts:114:27
+ ❯ src/app/core/services/offline-integrity.spec.ts:20:38
+     18|  });
+     19|  it('does not overwrite confirmed content when the same UUID is saved …
+     20|   const op=operation();await storage.saveOfflineOperation(op);
+       |                                      ^
+     21|   await storage.applyBatchResponse([op],{results:[confirmation(op)]} a…
+     22|   await storage.saveOfflineOperation(op);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  |web-app| src/app/core/services/offline-integrity.spec.ts > Durable offline queue integrity > keeps every pending on partial response
+ FAIL  |web-app| src/app/core/services/offline-integrity.spec.ts > Durable offline queue integrity > keeps every pending on duplicate response
+ FAIL  |web-app| src/app/core/services/offline-integrity.spec.ts > Durable offline queue integrity > keeps every pending on unknown response
+ FAIL  |web-app| src/app/core/services/offline-integrity.spec.ts > Durable offline queue integrity > keeps every pending on missing_receipt response
+ FAIL  |web-app| src/app/core/services/offline-integrity.spec.ts > Durable offline queue integrity > keeps every pending on wrong_type response
+ReferenceError: indexedDB is not defined
+ ❯ openDB node_modules/idb/build/index.js:164:21
+ ❯ _OfflineStorageService.initDB src/app/core/services/offline-storage.service.ts:39:12
+ ❯ _OfflineStorageService.saveOfflineOperation src/app/core/services/offline-storage.service.ts:114:27
+ ❯ src/app/core/services/offline-integrity.spec.ts:28:51
+     26|  });
+     27|  it.each(['partial','duplicate','unknown','missing_receipt','wrong_typ…
+     28|   const a=operation(),b=operation();await storage.saveOfflineOperation…
+       |                                                   ^
+     29|   const results=[confirmation(a),confirmation(b)];
+     30|   if(kind==='partial')results.pop();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  |web-app| src/app/core/services/offline-integrity.spec.ts > Durable offline queue integrity > keeps transient failures pending while atomically confirming the rest
+ReferenceError: indexedDB is not defined
+ ❯ openDB node_modules/idb/build/index.js:164:21
+ ❯ _OfflineStorageService.initDB src/app/core/services/offline-storage.service.ts:39:12
+ ❯ _OfflineStorageService.saveOfflineOperation src/app/core/services/offline-storage.service.ts:114:27
+ ❯ src/app/core/services/offline-integrity.spec.ts:39:51
+     37|  });
+     38|  it('keeps transient failures pending while atomically confirming the …
+     39|   const a=operation(),b=operation();await storage.saveOfflineOperation…
+       |                                                   ^
+     40|   await storage.applyBatchResponse([a,b],{results:[confirmation(a),{cl…
+     41|   expect((await storage.getPendingOperations()).map(op=>op.client_oper…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  |web-app| src/app/core/services/offline-integrity.spec.ts > Durable offline queue integrity > a fixed owner handle survives account switches and a new storage instance
+ReferenceError: indexedDB is not defined
+ ❯ openDB node_modules/idb/build/index.js:164:21
+ ❯ _OfflineStorageService.initDB src/app/core/services/offline-storage.service.ts:39:12
+ ❯ _OfflineStorageService.saveOfflineOperation src/app/core/services/offline-storage.service.ts:114:27
+ ❯ src/app/core/services/offline-integrity.spec.ts:45:15
+     43|  it('a fixed owner handle survives account switches and a new storage …
+     44|   const owner=localStorage.getItem('auth_scope')!,fixed=storage.forSco…
+     45|   await fixed.saveOfflineOperation(op);localStorage.setItem('auth_scop…
+       |               ^
+     46|   await fixed.applyBatchResponse([op],{results:[confirmation(op)]} as …
+     47|   expect(await storage.getAllOfflineOperations()).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  |web-app| src/app/core/services/offline-integrity.spec.ts > Durable offline queue integrity > imports verified rows once without replacing existing operations
+ReferenceError: indexedDB is not defined
+ ❯ openDB node_modules/idb/build/index.js:164:21
+ ❯ _OfflineStorageService.initDB src/app/core/services/offline-storage.service.ts:39:12
+ ❯ _OfflineStorageService.saveOfflineOperation src/app/core/services/offline-storage.service.ts:114:27
+ ❯ src/app/core/services/offline-integrity.spec.ts:52:38
+     50|  });
+     51|  it('imports verified rows once without replacing existing operations'…
+     52|   const op=operation();await storage.saveOfflineOperation(op);
+       |                                      ^
+     53|   expect(await storage.importRecovered([{...op,monto_total:999},operat…
+     54|   expect((await storage.getAllOfflineOperations()).find(r=>r.client_op…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+
+ FAIL  |web-app| src/app/core/services/offline-integrity.spec.ts > Durable offline queue integrity > preserves rejected parent and creates only one linked successor
+ReferenceError: indexedDB is not defined
+ ❯ openDB node_modules/idb/build/index.js:164:21
+ ❯ _OfflineStorageService.initDB src/app/core/services/offline-storage.service.ts:39:12
+ ❯ _OfflineStorageService.saveOfflineOperation src/app/core/services/offline-storage.service.ts:114:27
+ ❯ src/app/core/services/offline-integrity.spec.ts:57:38
+     55|  });
+     56|  it('preserves rejected parent and creates only one linked successor',…
+     57|   const op=operation();await storage.saveOfflineOperation(op);
+       |                                      ^
+     58|   await storage.applyBatchResponse([op],{results:[{client_operation_id…
+     59|   const child=operation();expect(await storage.replaceRejected(op.clie…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/11]⎯
+
+ FAIL  |web-app| src/app/features/products/product-list/product-list.component.spec.ts > announces a catalog error and lets the user retry without losing the current filter
+TypeError: Cannot read properties of undefined (reading 'userAgent')
+ ❯ userAgent ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/platform-browser/src/browser/browser_adapter.ts:80:28
+ ❯ getUserAgent ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/forms/src/directives/default_value_accessor.ts:38:40
+ ❯ _isAndroid ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/forms/src/directives/default_value_accessor.ts:112:31
+ ❯ NodeInjectorFactory.DefaultValueAccessor_Factory [as factory] ng:/DefaultValueAccessor/ɵfac.js:5:10
+ ❯ factory ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/render3/di.ts:785:37
+ ❯ getNodeInjectable ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/render3/instructions/shared.ts:408:22
+ ❯ instantiateAllDirectives ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/render3/instructions/shared.ts:122:2
+ ❯ createDirectivesInstances ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/render3/instructions/element.ts:142:4
+ ❯ initializeElement ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/render3/instructions/element.ts:127:2
+ ❯ ProductListComponent_Template src/app/features/products/product-list/product-list.component.html:25:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/11]⎯
+
+
+ Test Files  2 failed | 22 passed (24)
+      Tests  11 failed | 53 passed (64)
+   Start at  08:46:09
+   Duration  11.50s (transform 1.93s, setup 6.44s, import 4.31s, tests 2.29s, environment 120.19s)
+

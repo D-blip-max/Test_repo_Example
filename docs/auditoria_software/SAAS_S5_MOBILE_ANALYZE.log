@@ -1,0 +1,5 @@
+Analyzing mobile...                                             
+
+   info - Parameter 'storage' could be a super parameter. Trying converting 'storage' to a super parameter - test\platform_scope_test.dart:17:2 - use_super_parameters
+
+1 issue found. (ran in 219.2s)

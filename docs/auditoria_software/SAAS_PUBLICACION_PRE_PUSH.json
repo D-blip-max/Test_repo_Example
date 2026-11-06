@@ -1,0 +1,44 @@
+{
+  "checked_utc": "2026-11-06T14:05:39.196470+00:00",
+  "scope": "pre-push read-only evidence; physical SQLite not recovered",
+  "results": [
+    {
+      "tenant": "urbanstyle",
+      "backup_status": 404
+    },
+    {
+      "tenant": "modaexpress",
+      "backup_status": 404
+    },
+    {
+      "tenant": "urbanstyle",
+      "purpose": "private-backup",
+      "login_status": 200,
+      "backup_status": 200,
+      "private_backup_saved": true,
+      "bytes": 2959606,
+      "sha256": "567247afd0258cdb17e69aa97618069562b987df1ccfddd75923124671bf746d"
+    },
+    {
+      "tenant": "modaexpress",
+      "purpose": "private-backup",
+      "login_status": 200,
+      "backup_status": 200,
+      "private_backup_saved": true,
+      "bytes": 579354,
+      "sha256": "f3e89d0b161420a243f9618575817cb6e1fc58b972974115946c6a1897518613"
+    },
+    {
+      "tenant": "urbanstyle",
+      "purpose": "physical-test-central-evidence",
+      "login_status": 200,
+      "wallet_status": 200,
+      "wallet": {
+        "id": "73a808df-1c08-40d4-81d4-d670b39156f6",
+        "user_id": "0629c7d2-3bfd-49ad-9230-9e68a0f620e2",
+        "saldo_actual": 290.0
+      }
+    }
+  ],
+  "updated_utc": "2026-11-06T14:06:22.483089+00:00"
+}

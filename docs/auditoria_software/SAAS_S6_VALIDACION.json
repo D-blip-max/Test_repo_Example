@@ -1,0 +1,34 @@
+{
+  "scope": "local only; no SaaS publication or phone installation",
+  "backend": {
+    "complete_run": {
+      "passed": 456,
+      "failed": 1,
+      "log": "SAAS_S6_BACKEND_TESTS.log"
+    },
+    "final_directed": {
+      "passed": 24,
+      "failed": 0,
+      "log": "SAAS_S6_REGRESION_FINAL.log"
+    },
+    "resolved_failure": "test_demo_reset.py::test_fresh_rebuilds_legacy_schema_seeds_twice_and_authenticates: obsolete 18-check expectation; now 26",
+    "new_cases_after_complete_collection": 9,
+    "distinct_cases_verified_across_runs": 466
+  },
+  "web": {
+    "tests_passed": 64,
+    "build": "passed"
+  },
+  "mobile": {
+    "tests_passed": 81,
+    "analyze": "clean",
+    "apk_build": "passed",
+    "apk_installed": false
+  },
+  "recovery": {
+    "global_tables_equal": 35,
+    "seed_reconciliation_checks": 26,
+    "verification_counters_zero": 9
+  },
+  "external_acceptance": "pending phone reconciliation and specific publication authorization"
+}

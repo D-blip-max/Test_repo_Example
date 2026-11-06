@@ -1,0 +1,44 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+____________________ test_old_client_cannot_self_activate _____________________
+tests\test_saas_subscription_contracts.py:24: in test_old_client_cannot_self_activate
+    assert result.status_code==409,result.text
+E   AssertionError: {"tenant":{"id":"aa82258d-79af-4c69-b8f3-b3ade006d2aa","nombre":"a","razon_social":"a","nit_rut":"saas-a","slug":"saas-a","logo_url":null,"color_primario":"#4f46e5","color_secundario":"#818cf8","eslogan":null,"telefono":null,"email_contacto":null,"paypal_client_id":null,"paypal_mode":"sandbox","activo":true,"plan_codigo":null,"plan_nombre":null},"plan":{"id":"b651de74-bfee-41e4-b195-b9792c2e93a7","codigo":"CONTRACT","nombre":"Contract","descripcion":null,"max_sucursales":4,"permite_reportes_ia":true,"permite_offline":true,"precio_mensual_bob":100.0,"activo":true},"estado":"ACTIVA","fecha_inicio":"2026-11-02","fecha_vencimiento":"2027-11-05","dias_restantes":365,"sucursales_usadas":0,"sucursales_maximas":4,"sucursales_disponibles":4,"porcentaje_sucursales_usadas":0.0,"permite_reportes_ia":true,"permite_offline":true,"mensaje_alerta":null}
+E   assert 200 == 409
+E    +  where 200 = <Response [200 OK]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+[SUCCESS] Permisos, roles y temporadas sembrados exitosamente.
+______________ test_onboarding_disabled_without_verified_channel ______________
+tests\test_saas_subscription_contracts.py:33: in test_onboarding_disabled_without_verified_channel
+    assert result.status_code==503,result.text
+E   AssertionError: {"detail":"El plan 'PROFESIONAL' no existe."}
+E   assert 404 == 503
+E    +  where 404 = <Response [404 Not Found]>.status_code
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+app\main.py:62
+  D:\SI2_Proyecto\Si2_Proyecto\backend\app\main.py:62: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+.venv\Lib\site-packages\fastapi\applications.py:4681
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\applications.py:4681: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)  # ty: ignore[deprecated]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_saas_subscription_contracts.py::test_old_client_cannot_self_activate
+FAILED tests/test_saas_subscription_contracts.py::test_onboarding_disabled_without_verified_channel
+2 failed, 3 warnings in 5.51s

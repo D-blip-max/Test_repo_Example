@@ -1,0 +1,92 @@
+
+> web-app@0.0.0 test
+> ng test --watch=false
+
+> Building...
+√ Building...
+Initial chunk files                                                           | Names                                                                      |  Raw size
+spec-app-features-sales-pos-pos.component.js                                  | spec-app-features-sales-pos-pos.component                                  | 100.98 kB | 
+spec-app-features-products-product-list-product-list.component.js             | spec-app-features-products-product-list-product-list.component             |  50.22 kB | 
+spec-app-features-suppliers-supplier-list-supplier-list.component.js          | spec-app-features-suppliers-supplier-list-supplier-list.component          |  37.58 kB | 
+spec-app-features-reservations-reservation-form-reservation-form.component.js | spec-app-features-reservations-reservation-form-reservation-form.component |  32.67 kB | 
+styles.css                                                                    | styles                                                                     |  16.03 kB | 
+chunk-DXVW6T2S.js                                                             | -                                                                          |  14.25 kB | 
+spec-app-core-services-chatbot.service.js                                     | spec-app-core-services-chatbot.service                                     |  13.74 kB | 
+chunk-FSLTB6KA.js                                                             | -                                                                          |   8.54 kB | 
+spec-app-core-directives-focus-dialog.directive.js                            | spec-app-core-directives-focus-dialog.directive                            |   6.38 kB | 
+spec-app-core-services-notification.service.js                                | spec-app-core-services-notification.service                                |   5.96 kB | 
+chunk-PCJYHEFG.js                                                             | -                                                                          |   5.35 kB | 
+chunk-JBWBLPNK.js                                                             | -                                                                          |   5.19 kB | 
+spec-app-core-services-offline-integrity.js                                   | spec-app-core-services-offline-integrity                                   |   5.17 kB | 
+chunk-VLU7DC2F.js                                                             | -                                                                          |   5.07 kB | 
+spec-app-core-services-payment-contracts.js                                   | spec-app-core-services-payment-contracts                                   |   4.91 kB | 
+spec-app-core-services-sync-queue.service.js                                  | spec-app-core-services-sync-queue.service                                  |   4.83 kB | 
+chunk-WPABR6XA.js                                                             | -                                                                          |   4.14 kB | 
+chunk-MTVURXFT.js                                                             | -                                                                          |   3.93 kB | 
+chunk-JLIABKDS.js                                                             | -                                                                          |   3.57 kB | 
+spec-app-core-guards-auth.guard.js                                            | spec-app-core-guards-auth.guard                                            |   3.51 kB | 
+chunk-V7INUA4T.js                                                             | -                                                                          |   2.85 kB | 
+spec-app-core-services-offline-storage.service.js                             | spec-app-core-services-offline-storage.service                             |   2.81 kB | 
+spec-app-core-services-saas-session.js                                        | spec-app-core-services-saas-session                                        |   2.63 kB | 
+spec-app-core-services-auth.service.js                                        | spec-app-core-services-auth.service                                        |   2.59 kB | 
+chunk-YHJD5DJO.js                                                             | -                                                                          |   2.35 kB | 
+spec-app-core-services-tenant-theme.service.js                                | spec-app-core-services-tenant-theme.service                                |   1.98 kB | 
+chunk-HXGYBRWL.js                                                             | -                                                                          |   1.82 kB | 
+chunk-KJHWBWYS.js                                                             | -                                                                          |   1.80 kB | 
+spec-app-core-interceptors-auth.interceptor.js                                | spec-app-core-interceptors-auth.interceptor                                |   1.57 kB | 
+spec-app-app.js                                                               | spec-app-app                                                               |   1.51 kB | 
+spec-app-core-utils-inventory-movement.js                                     | spec-app-core-utils-inventory-movement                                     |   1.23 kB | 
+init-testbed.js                                                               | init-testbed                                                               |   1.21 kB | 
+chunk-OEHTEMS5.js                                                             | -                                                                          |   1.19 kB | 
+vitest-mock-patch.js                                                          | vitest-mock-patch                                                          | 974 bytes | 
+spec-app-core-utils-accessible-color.js                                       | spec-app-core-utils-accessible-color                                       | 887 bytes | 
+spec-app-core-utils-report-csv.js                                             | spec-app-core-utils-report-csv                                             | 767 bytes | 
+chunk-FPIZOZ5C.js                                                             | -                                                                          | 190 bytes | 
+
+                                                                              | Initial total                                                              | 360.35 kB
+
+Application bundle generation complete. [24.263 seconds] - 2026-11-06T12:06:03.624Z
+
+
+ RUN  v4.1.11 D:/SI2_Proyecto/Si2_Proyecto/web
+
+(node:14776) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ |web-app| src/app/core/services/saas-session.spec.ts (2 tests | 2 failed) 13ms
+     × subscription service construction does not fetch a commercial contract for platform 10ms
+     × guest redirect uses restored scope instead of sending operator to dashboard 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |web-app| src/app/core/services/saas-session.spec.ts > SaaS session boundaries > subscription service construction does not fetch a commercial contract for platform
+TypeError: Cannot read properties of undefined (reading 'setItem')
+ ❯ setup src/app/core/services/saas-session.spec.ts:14:44
+     12|
+     13| function setup(){
+     14|  TestBed.resetTestingModule();localStorage.setItem('access_token','sav…
+       |                                            ^
+     15|  const user=signal<any>({id:'operator',tenant_id:'technical',access_sc…
+     16|  TestBed.configureTestingModule({providers:[provideHttpClient(),provid…
+ ❯ src/app/core/services/saas-session.spec.ts:23:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |web-app| src/app/core/services/saas-session.spec.ts > SaaS session boundaries > guest redirect uses restored scope instead of sending operator to dashboard
+TypeError: Cannot read properties of undefined (reading 'setItem')
+ ❯ setup src/app/core/services/saas-session.spec.ts:14:44
+     12|
+     13| function setup(){
+     14|  TestBed.resetTestingModule();localStorage.setItem('access_token','sav…
+       |                                            ^
+     15|  const user=signal<any>({id:'operator',tenant_id:'technical',access_sc…
+     16|  TestBed.configureTestingModule({providers:[provideHttpClient(),provid…
+ ❯ src/app/core/services/saas-session.spec.ts:27:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 19 passed (20)
+      Tests  2 failed | 43 passed (45)
+   Start at  08:06:08
+   Duration  31.07s (transform 3.17s, setup 12.75s, import 6.84s, tests 1.82s, environment 418.80s)
+

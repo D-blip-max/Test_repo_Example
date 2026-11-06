@@ -1,0 +1,36 @@
+
+> web-app@0.0.0 test
+> ng test --watch=false
+
+> Building...
+√ Building...
+Application bundle generation failed. [14.867 seconds] - 2026-11-06T12:21:37.153Z
+
+X [ERROR] TS2532: Object is possibly 'undefined'. [plugin angular-compiler]
+
+    src/app/features/platform/platform-actions.spec.ts:20:9:
+      20 │   expect(api.companyStatus.mock.calls[0][0].platform_revision).toB...
+         ╵          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2493: Tuple type '[]' of length '0' has no element at index '0'. [plugin angular-compiler]
+
+    src/app/features/platform/platform-actions.spec.ts:20:41:
+      20 │ ...pi.companyStatus.mock.calls[0][0].platform_revision).toBe(4);ex...
+         ╵                                   ^
+
+
+X [ERROR] TS2532: Object is possibly 'undefined'. [plugin angular-compiler]
+
+    src/app/features/platform/platform-actions.spec.ts:47:53:
+      47 │ ...edTimes(1);expect(api.decide.mock.calls[0][0].lock_version).toB...
+         ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2493: Tuple type '[]' of length '0' has no element at index '0'. [plugin angular-compiler]
+
+    src/app/features/platform/platform-actions.spec.ts:47:78:
+      47 │ ...xpect(api.decide.mock.calls[0][0].lock_version).toBe(3);expect(...
+         ╵                                   ^
+
+

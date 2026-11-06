@@ -1,0 +1,26 @@
+{
+  "environment": "API real local desechable, sin proveedor ni cobro",
+  "results": [
+    {
+      "name": "real stale revision conflict leaves company state unchanged and explains refresh",
+      "status": "PASS"
+    },
+    {
+      "name": "published plan copies into a new draft; editing and publishing preserves previous revision",
+      "status": "PASS"
+    },
+    {
+      "name": "public catalog uses real revised price while accepted company terms keep the earlier price",
+      "status": "PASS"
+    },
+    {
+      "name": "retiring latest offer does not resurrect prior price or remove contracted periods",
+      "status": "PASS"
+    },
+    {
+      "name": "pending company request cancellation preserves confirmed terms",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

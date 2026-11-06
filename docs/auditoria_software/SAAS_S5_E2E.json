@@ -1,0 +1,42 @@
+{
+  "environment": "API real local desechable; un 503 inyectado explícitamente",
+  "results": [
+    {
+      "name": "operator login, reload and direct commercial URL stay in platform without commercial requests",
+      "status": "PASS"
+    },
+    {
+      "name": "catalog identity, draft and explicit publication of immutable conditions",
+      "status": "PASS"
+    },
+    {
+      "name": "company role cannot enter platform; historical unknown price is not replaced by catalog",
+      "status": "PASS"
+    },
+    {
+      "name": "injected 503 is visible; explicit retry recovers without creating subscription",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit quote acceptance creates one pending manual request",
+      "status": "PASS"
+    },
+    {
+      "name": "platform approves accepted future conditions manually, without a payment claim",
+      "status": "PASS"
+    },
+    {
+      "name": "approved future period is separate from current legacy conditions",
+      "status": "PASS"
+    },
+    {
+      "name": "company suspension requires explicit confirmation and manager recovers only own contract",
+      "status": "PASS"
+    },
+    {
+      "name": "customer cannot manage company subscription and platform audit has dedicated view",
+      "status": "PASS"
+    }
+  ],
+  "jsErrors": []
+}

@@ -1,0 +1,44 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+_________ test_migration_preserves_effective_legacy_analytics_access __________
+tests\test_saas_migration_seed.py:44: in test_migration_preserves_effective_legacy_analytics_access
+    from scripts.migrate_saas import migrate_connection
+E   ModuleNotFoundError: No module named 'scripts.migrate_saas'
+_______ test_migration_failure_rolls_back_ddl_and_keeps_populated_data ________
+tests\test_saas_migration_seed.py:64: in test_migration_failure_rolls_back_ddl_and_keeps_populated_data
+    import scripts.migrate_saas as migration
+E   ModuleNotFoundError: No module named 'scripts.migrate_saas'
+______________ test_readiness_rejects_missing_saas_guard_trigger ______________
+tests\test_saas_migration_seed.py:79: in test_readiness_rejects_missing_saas_guard_trigger
+    assert not schema_compatible(conn)
+E   assert not True
+E    +  where True = <function schema_compatible at 0x0000018EBDB1D8A0>(<sqlalchemy.engine.base.Connection object at 0x0000018EBDB6B750>)
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+app\main.py:62
+  D:\SI2_Proyecto\Si2_Proyecto\backend\app\main.py:62: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+.venv\Lib\site-packages\fastapi\applications.py:4681
+  D:\SI2_Proyecto\Si2_Proyecto\backend\.venv\Lib\site-packages\fastapi\applications.py:4681: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)  # ty: ignore[deprecated]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_saas_migration_seed.py::test_migration_preserves_effective_legacy_analytics_access
+FAILED tests/test_saas_migration_seed.py::test_migration_failure_rolls_back_ddl_and_keeps_populated_data
+FAILED tests/test_saas_migration_seed.py::test_readiness_rejects_missing_saas_guard_trigger
+3 failed, 3 warnings in 16.66s
